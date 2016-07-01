@@ -40,6 +40,11 @@ class Config {
 	public static $username = "AwesomeSauce";
 	public static $realName = "Awesome Thingy";
 	public static $nickservPassword = "";
+
+	public static $manualLink = "http://cyberrabbits.net/non/mafia/";
+
+	public static $lobbyRoom = "##PMG";
+	public static $mafiaRoom = "##PMGMafias";
 	
 	/**
 	 * Channels to join
@@ -69,7 +74,7 @@ class Config {
 	 *			     command outcomes, etc.
 	 *			     "notice" or "pm"
 	 */
-	public static $commandCharacter = ".";
+	public static $commandCharacter = "!";
 	public static $notificationType = "notice";
 	
 	/**

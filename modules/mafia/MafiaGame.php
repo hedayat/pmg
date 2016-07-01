@@ -25,14 +25,14 @@ class MafiaGame {
      * Lobby room (City room), bot must have access to take ownership
      * @var string
      */
-    static $LOBBY_ROOM = "##PMG";
+    static $LOBBY_ROOM = Config::$lobbyRoom;
 
     /**
      * 
      * Mafia room , bot must have access to take ownership
      * @var string
      */
-    static $MAFIA_ROOM = "##PMGMafias";
+    static $MAFIA_ROOM = Config::$mafiaRoom;
 
     /**
      * 
@@ -389,7 +389,7 @@ class MafiaGame {
 
         //Change topics
         $this->topic(self::$MAFIA_ROOM, "Welcome to Persian Mafia Game! but leave this channel soon, its not place for you to stay!! - Channel is logged!");
-        $this->topic(self::$LOBBY_ROOM, "Register for game to play! see http://cyberrabbits.net/non/mafia/");
+        $this->topic(self::$LOBBY_ROOM, "Register for game to play! see " . Config::$manualLink);
     }
 
     /**
@@ -483,7 +483,7 @@ class MafiaGame {
         $this->inGameNicks[strtolower($nick)] = $nick;
         $this->inGamePart[strtolower($nick)] = array('mode' => NORMAL_PPL, 'alive' => true);
 
-        $this->say($nick, MafiaGame::colorize(3, $nick) . " Welcome to game, wait for start :D you can read the manual at http://cyberrabbits.net/non/mafia/");
+        $this->say($nick, MafiaGame::colorize(3, $nick) . " Welcome to game, wait for start :D you can read the manual at " . Config::$manualLink);
         $this->act(self::$LOBBY_ROOM, MafiaGame::colorize(3, $nick) . " joined to the game :), total players: {$this->getCount()}");
     }
 
