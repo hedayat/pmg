@@ -22,19 +22,6 @@ class MafiaGame {
     private static $instanse;
 
     /**
-     * Lobby room (City room), bot must have access to take ownership
-     * @var string
-     */
-    static $LOBBY_ROOM = Config::$lobbyRoom;
-
-    /**
-     * 
-     * Mafia room , bot must have access to take ownership
-     * @var string
-     */
-    static $MAFIA_ROOM = Config::$mafiaRoom;
-
-    /**
      * 
      * Night time out
      * @var integer
