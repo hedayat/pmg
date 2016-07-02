@@ -372,8 +372,8 @@ class MafiaGame {
         $this->setOp(self::$MAFIA_ROOM, Config::$nickname);
 
         //Remove password if any, just in case
-        $this->setMode(self::$LOBBY_ROOM, "-k *");
-        $this->setMode(self::$MAFIA_ROOM, "-k *");
+        $this->setMode(self::$LOBBY_ROOM, "-ki *");
+        $this->setMode(self::$MAFIA_ROOM, "-ki *");
         //Set private and secret flags :)
         $this->setMode(self::$MAFIA_ROOM, "+ps");
         //Remove modorated flag
