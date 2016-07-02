@@ -42,7 +42,7 @@ class MafiaSlap extends Module {
         }
 
         $cleareString = $this->ParseString($this->parameters(2, true));
-        $server->message(MafiaGame::$LOBBY_ROOM, "$I slaps " . $this->parameters(1) . ' ' . $cleareString);
+        $server->message(Config::$lobbyRoom, "$I slaps " . $this->parameters(1) . ' ' . $cleareString);
     }
 
     public function ParseString($str) {

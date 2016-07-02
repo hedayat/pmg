@@ -44,7 +44,7 @@ class MafiaMafia extends Module {
         }
 
         $cleareString = $this->ParseString($this->parameters(2, true));
-        $server->message(MafiaGame::$LOBBY_ROOM, "$I think " . $target . ' is Mafia ' . $cleareString);
+        $server->message(Config::$lobbyRoom, "$I think " . $target . ' is Mafia ' . $cleareString);
     }
 
     public function ParseString($str) {

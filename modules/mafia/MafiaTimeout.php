@@ -15,7 +15,7 @@ class MafiaTimeout extends Module {
         $game = MafiaGame::getInstance();
         $server = Server::getInstance();
         //if ($game->getState() != MAFIA_TURN) return;
-        $server->act(MafiaGame::$LOBBY_ROOM, "Checking time out. please wait! request from : " . $this->senderNick);
+        $server->act(Config::$lobbyRoom, "Checking time out. please wait! request from : " . $this->senderNick);
         $game->checkNightTimeout();
     }
 

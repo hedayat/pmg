@@ -43,7 +43,16 @@ class Config {
 
 	public static $manualLink = "http://cyberrabbits.net/non/mafia/";
 
+	/**
+	 * Lobby room (City room), bot must have access to take ownership
+	 * @var string
+	 */
 	public static $lobbyRoom = "##PMG";
+
+	/**
+	 * Mafia room , bot must have access to take ownership
+	 * @var string
+	 */
 	public static $mafiaRoom = "##PMGMafias";
 	
 	/**
