@@ -12,6 +12,7 @@ use awesomeircbot\line\ReceivedLineTypes;
 class Mafia implements ModuleConfig {
 
 	public static $mappedCommands = array(
+		"mhelp"	=>  "modules\mafia\MafiaHelp",
 		"list"	=>  "modules\mafia\MafiaList",
 		"vote"	=>  "modules\mafia\MafiaVote",
 		"heal"	=>  "modules\mafia\MafiaHeal",
