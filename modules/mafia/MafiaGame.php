@@ -135,7 +135,7 @@ class MafiaGame {
      */
     static $DEAD_IS_TALKING = 0;
 
-    static $VERBOSE = 1;
+    static $VERBOSE = 0;
 
     /**
      * 
