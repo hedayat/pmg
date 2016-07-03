@@ -787,7 +787,7 @@ class MafiaGame {
         $this->state = DAY_TURN;
 
         $this->startInfo();
-        $this->sayStatus();
+        $this->sayStatus(false);
         return true;
     }
 
