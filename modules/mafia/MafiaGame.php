@@ -129,6 +129,8 @@ class MafiaGame {
      */
     static $DEAD_IS_TALKING = 0;
 
+    static $VERBOSE = 1;
+
     /**
      * 
      * Set mode for channel
@@ -635,8 +637,10 @@ class MafiaGame {
         foreach ($this->inGamePart as $nick => $data) {
             if ($data['mode'] == MAFIA_PPL) {
                 $this->say($nick, MafiaGame::boco(9, "You are mafia!!"));
-                $this->say($nick, "You are mafia :D Please join " . Config::$mafiaRoom . " and " . Config::$lobbyRoom);
-                $this->say($nick, Config::$mafiaRoom . " Password : " . $this->mafiaPass . " and " . Config::$lobbyRoom); #. " Password : " . $this->lobbyPass);
+                if (self::$VERBOSE) {
+                    $this->say($nick, "You are mafia :D Please join " . Config::$mafiaRoom . " and " . Config::$lobbyRoom);
+                    $this->say($nick, Config::$mafiaRoom . " Password : " . $this->mafiaPass . " and " . Config::$lobbyRoom); #. " Password : " . $this->lobbyPass);
+                }
 
                 $this->invite($nick, Config::$mafiaRoom);
                 $this->invite($nick, Config::$lobbyRoom);
@@ -644,9 +648,11 @@ class MafiaGame {
                 $this->say($nick, "Use this command : /join " . Config::$mafiaRoom . ' ' . $this->mafiaPass);
             } else {
                 $this->say($nick, MafiaGame::boco(9, "You are <NOT> mafia!"));
-                $this->say($nick, "The game begin, go to sleep! (Join " . Config::$lobbyRoom . " room please and " .
+                if (self::$VERBOSE) {
+                    $this->say($nick, "The game begin, go to sleep! (Join " . Config::$lobbyRoom . " room please and " .
                         "stay away from " . Config::$mafiaRoom . " its dangerous!)");
-                $this->say($nick, Config::$lobbyRoom); #. " Password : " . $this->lobbyPass);
+                    //$this->say($nick, Config::$lobbyRoom); #. " Password : " . $this->lobbyPass);
+                }
 
                 $this->invite($nick, Config::$lobbyRoom);
             }
@@ -744,11 +750,15 @@ class MafiaGame {
 
         $listOfUsers = array_keys($this->inGameNicks);
 
+        if (!self::$VERBOSE)
+            $this->say(Config::$lobbyRoom, 'Selecting roles...');
+
         if ($dr) {
             $result = $this->randSelectFrom($listOfUsers, 1);
             foreach ($result as $who)
                 $this->inGamePart[strtolower($who)] = array('mode' => DR_PPL, 'alive' => true);
-            $this->say(Config::$lobbyRoom, sprintf('DEBUG : Choose %d dr from %d player', count($result), count($listOfUsers) + 1));
+            if (self::$VERBOSE)
+                $this->say(Config::$lobbyRoom, sprintf('DEBUG : Choose %d dr from %d player', count($result), count($listOfUsers) + 1));
         }
 
 
@@ -756,20 +766,23 @@ class MafiaGame {
             $result = $this->randSelectFrom($listOfUsers, 1);
             foreach ($result as $who)
                 $this->inGamePart[strtolower($who)] = array('mode' => DETECTIVE_PPL, 'alive' => true);
-            $this->say(Config::$lobbyRoom, sprintf('DEBUG : Choose %d detective from %d player', count($result), count($listOfUsers) + 1));
+            if (self::$VERBOSE)
+                $this->say(Config::$lobbyRoom, sprintf('DEBUG : Choose %d detective from %d player', count($result), count($listOfUsers) + 1));
         }
 
         if ($noharm) {
             $result = $this->randSelectFrom($listOfUsers, 1);
             foreach ($result as $who)
                 $this->inGamePart[strtolower($who)] = array('mode' => NOHARM_PPL, 'alive' => true);
-            $this->say(Config::$lobbyRoom, sprintf('DEBUG : Choose %d inv from %d player', count($result), count($listOfUsers) + 1));
+            if (self::$VERBOSE)
+                $this->say(Config::$lobbyRoom, sprintf('DEBUG : Choose %d inv from %d player', count($result), count($listOfUsers) + 1));
         }
 
         $result = $this->randSelectFrom($listOfUsers, $mafia);
         foreach ($result as $who)
             $this->inGamePart[strtolower($who)] = array('mode' => MAFIA_PPL, 'alive' => true);
-        $this->say(Config::$lobbyRoom, sprintf('DEBUG : Choose %d mafia from %d player', count($result), count($listOfUsers) + $mafia));
+        if (self::$VERBOSE)
+                $this->say(Config::$lobbyRoom, sprintf('DEBUG : Choose %d mafia from %d player', count($result), count($listOfUsers) + $mafia));
 
         $this->state = MAFIA_TURN;
 
@@ -1009,11 +1022,13 @@ class MafiaGame {
                 $this->drVote = $this->isDrDead();
                 $this->detectiveVote = $this->isDetectiveDead();
                 $this->say(Config::$mafiaRoom, MafiaGame::bold("Your turn to kill!! use " . MafiaGame::colorize(2, "!kill") . " command to vote"));
-                $this->say(Config::$mafiaRoom, MafiaGame::bold("!kill *  : for kill nobody"));
-                $this->say(Config::$mafiaRoom, MafiaGame::bold("!kill -  : for remove your vote"));
-                $this->say(Config::$mafiaRoom, MafiaGame::bold("!vote  : To see other mafias (and their votes)"));
-                $this->say(Config::$mafiaRoom, MafiaGame::bold("!list  : To see list of all players"));
-                $this->say(Config::$lobbyRoom, MafiaGame::bold("!timeout  : To end the night after " . self::$NIGHT_TIMEOUT));
+                if (self::$VERBOSE) {
+                    $this->say(Config::$mafiaRoom, MafiaGame::bold("!kill *  : for kill nobody"));
+                    $this->say(Config::$mafiaRoom, MafiaGame::bold("!kill -  : for remove your vote"));
+                    $this->say(Config::$mafiaRoom, MafiaGame::bold("!vote  : To see other mafias (and their votes)"));
+                    $this->say(Config::$mafiaRoom, MafiaGame::bold("!list  : To see list of all players"));
+                    $this->say(Config::$lobbyRoom, MafiaGame::bold("!timeout  : To end the night after " . self::$NIGHT_TIMEOUT));
+                }
                 $this->act(Config::$lobbyRoom, "Good night ppl ;)");
                 $this->nightTurnTime = time();
                 break;
@@ -1029,11 +1044,13 @@ class MafiaGame {
                     $this->say(Config::$lobbyRoom, MafiaGame::bold("Hi ppl, No one dead. peeowh!! either its a doctor's job or mafia trick :D, but who care? use " .
                                     MafiaGame::colorize(2, "!punish") . " command"));
                 }
-                $this->say(Config::$lobbyRoom, MafiaGame::bold("!punish -  : for remove your vote"));
-                $this->say(Config::$lobbyRoom, MafiaGame::bold("!vote  : To see other people votes"));
-                $this->say(Config::$lobbyRoom, MafiaGame::bold("!list  : To see list of all players"));
-                $this->say(Config::$lobbyRoom, MafiaGame::bold("!voice : If you must have voice and you have no voice, (mostly reconnect problems)"));
-                $this->say(Config::$lobbyRoom, MafiaGame::bold("!timeout  : To end the day after " . self::$DAY_TIMEOUT . " and 70% of player cast their vote."));
+                if (self::$VERBOSE) {
+                    $this->say(Config::$lobbyRoom, MafiaGame::bold("!punish -  : for remove your vote"));
+                    $this->say(Config::$lobbyRoom, MafiaGame::bold("!vote  : To see other people votes"));
+                    $this->say(Config::$lobbyRoom, MafiaGame::bold("!list  : To see list of all players"));
+                    $this->say(Config::$lobbyRoom, MafiaGame::bold("!voice : If you must have voice and you have no voice, (mostly reconnect problems)"));
+                    $this->say(Config::$lobbyRoom, MafiaGame::bold("!timeout  : To end the day after " . self::$DAY_TIMEOUT . " and 60% of player cast their vote."));
+                }
                 $this->dayTurnTime = time();
                 break;
         }
@@ -1160,7 +1177,8 @@ class MafiaGame {
             $this->say(Config::$lobbyRoom, "No body kiled last night! WOOOW! but lets hunt some of them!");
             $sayMe = false;
         }
-        $this->listAllUsers(Config::$lobbyRoom);
+        if (self::$VERBOSE)
+            $this->listAllUsers(Config::$lobbyRoom);
         $this->sayStatus($sayMe);
         $this->lastDead = $who;
         $this->lastWish = false;
@@ -1399,7 +1417,8 @@ class MafiaGame {
                         $this->say(Config::$lobbyRoom, "No body kiled last night! WOOOW! but lets hunt some of them!");
                         $sayMe = false;
                     }
-                    $this->listAllUsers(Config::$lobbyRoom);
+                    if (self::$VERBOSE)
+                        $this->listAllUsers(Config::$lobbyRoom);
                     $this->sayStatus($sayMe);
                 }
             } else {
@@ -1450,14 +1469,18 @@ class MafiaGame {
 
         if ($data['mode'] == MAFIA_PPL) {
             $this->say($I, MafiaGame::boco(9, "You are mafia!!"));
-            $this->say($I, "You are mafia :D Please join " . Config::$mafiaRoom . " and " . Config::$lobbyRoom);
-            $this->say($I, Config::$mafiaRoom . " Password : " . $this->mafiaPass . " and " . Config::$lobbyRoom); #. " Password : " . $this->lobbyPass);
+            if (self::$VERBOSE) {
+                $this->say($I, "You are mafia :D Please join " . Config::$mafiaRoom . " and " . Config::$lobbyRoom);
+                $this->say($I, Config::$mafiaRoom . " Password : " . $this->mafiaPass . " and " . Config::$lobbyRoom); #. " Password : " . $this->lobbyPass);
+            }
             $this->say($I, "Use this command : /join " . Config::$mafiaRoom . ' ' . $this->mafiaPass);
         } else {
             $this->say($I, MafiaGame::boco(9, "You are <NOT> mafia!"));
-            $this->say($I, "The game begin, go to sleep! (Join " . Config::$lobbyRoom . " room please and " .
+            if (self::$VERBOSE) {
+                $this->say($I, "The game begin, go to sleep! (Join " . Config::$lobbyRoom . " room please and " .
                     "stay away from " . Config::$mafiaRoom . " its dangerous!)");
-            $this->say($I, Config::$lobbyRoom); #. " Password : " . $this->lobbyPass);
+                //$this->say($I, Config::$lobbyRoom); #. " Password : " . $this->lobbyPass);
+            }
         }
 
         if ($data['mode'] == DR_PPL) {

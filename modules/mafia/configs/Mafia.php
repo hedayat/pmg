@@ -83,6 +83,10 @@ class Mafia implements ModuleConfig {
 				"description" => "Set if dead can talk (1: dead can talk, 0: dead cannot talk)",
 				"parameters" => "0|1"
 			),
+			"verbose" => array(
+				"description" => "Set if verbose mode should be enabled",
+				"parameters" => "0|1"
+			),
 			"night-time" => array(
 				"description" => "Minimum allowed night time (at least 100)",
 				"parameters" => "<seconds>"
@@ -148,8 +152,8 @@ class Mafia implements ModuleConfig {
 		),
 		"punish" => array(
 			"BASE" => array(
-				"description" => "Day command punish a ppl",
-				"parameters" => "<nick>"
+				"description" => "Day command to punish sombebody, or remove vote (-)",
+				"parameters" => "<nick>|-"
 			)
 		),
 		"timeout" => array(
@@ -160,8 +164,8 @@ class Mafia implements ModuleConfig {
 		),
 		"kill" => array(
 			"BASE" => array(
-				"description" => "Mafia command, kill a ppl",
-				"parameters" => "<nick>"
+				"description" => "Mafia command, kill somebody, or nobody (*), or remote vote (-)",
+				"parameters" => "<nick>|-|*"
 			)
 		),
 		"heal" => array(

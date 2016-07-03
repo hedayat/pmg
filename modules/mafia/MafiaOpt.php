@@ -29,6 +29,11 @@ class MafiaOpt extends Module {
         else
             $server->message(Config::$lobbyRoom, "Dead people can not talk (sorry) (dead-talk 0)");
 
+        if (MafiaGame::$VERBOSE)
+            $server->message(Config::$lobbyRoom, "Verbose mode in ON (verbose 1)");
+        else
+            $server->message(Config::$lobbyRoom, "Verbose mode in OFF (verbose 0)");
+
         $server->message(Config::$lobbyRoom, sprintf("Day timeout is %d secound (day-time %d)", MafiaGame::$DAY_TIMEOUT, MafiaGame::$DAY_TIMEOUT));
         $server->message(Config::$lobbyRoom, sprintf("Night timeout is %d secound (night-time %d)", MafiaGame::$NIGHT_TIMEOUT, MafiaGame::$NIGHT_TIMEOUT));
     }
@@ -50,6 +55,9 @@ class MafiaOpt extends Module {
                 break;
             case "DEAD-TALK":
                 MafiaGame::$DEAD_IS_TALKING = $value;
+                break;
+            case "VERBOSE":
+                MafiaGame::$VERBOSE = $value;
                 break;
             case "NIGHT-TIME":
                 MafiaGame::$NIGHT_TIMEOUT = intval($value);
