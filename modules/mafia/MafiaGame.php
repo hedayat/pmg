@@ -784,7 +784,7 @@ class MafiaGame {
         if (self::$VERBOSE)
                 $this->say(Config::$lobbyRoom, sprintf('DEBUG : Choose %d mafia from %d player', count($result), count($listOfUsers) + $mafia));
 
-        $this->state = MAFIA_TURN;
+        $this->state = DAY_TURN;
 
         $this->startInfo();
         $this->sayStatus();
