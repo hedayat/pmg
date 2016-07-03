@@ -260,7 +260,7 @@ class MafiaGame {
     private function doNight() {
         $server = Server::getInstance();
         //1- Set channel mode to modorated
-        $this->setMode(Config::$lobbyRoom, "+m");
+//        $this->setMode(Config::$lobbyRoom, "+m");
         //Set mode for all alive player to +v
         $mode = " -";
         $ppl = '';
@@ -290,7 +290,7 @@ class MafiaGame {
     private function doDay() {
         $server = Server::getInstance();
         //1- Set channel mode to modorated
-        $this->setMode(Config::$lobbyRoom, "+m");
+//        $this->setMode(Config::$lobbyRoom, "+m");
         //Set mode for all alive player to +v
         $mode = " +";
         $ppl = '';
@@ -1090,7 +1090,6 @@ class MafiaGame {
         switch ($this->state) {
             case MAFIA_TURN :
                 $this->prepareKillVote();
-                //$this->setMode(Config::$lobbyRoom , "+m");
                 $this->doNight();
                 $this->drVote = $this->isDrDead();
                 $this->detectiveVote = $this->isDetectiveDead();
