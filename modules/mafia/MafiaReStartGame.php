@@ -4,6 +4,7 @@ namespace modules\mafia;
 use awesomeircbot\module\Module;
 use awesomeircbot\server\Server;
 use modules\mafia\MafiaGame;
+use config\Config;
 
 class MafiaReStartGame extends Module {
 	

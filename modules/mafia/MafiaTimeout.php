@@ -6,6 +6,7 @@ use awesomeircbot\module\Module;
 use awesomeircbot\server\Server;
 use awesomeircbot\user\UserManager;
 use modules\mafia\MafiaGame;
+use config\Config;
 
 class MafiaTimeout extends Module {
 
