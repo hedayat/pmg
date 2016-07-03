@@ -192,6 +192,8 @@ class Mafia implements ModuleConfig {
 			"BASE" => array(
 				"description" => "Slap somebody!",
 				"parameters" => "<nick> [<reason>]"
+			)
+		),
 		"voice" => array(
 			"BASE" => array(
 				"description" => "Ask for voice, if you should have it but don't",

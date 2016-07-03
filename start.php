@@ -29,5 +29,5 @@ $pid = pcntl_fork();
  * The parent process will simply die peacefully
  */
 if (!$pid)
-	exec("php " . __DIR__ . "/bot.php &");
+	exec("php " . __DIR__ . "/bot.php &> exec.log &");
 ?>
