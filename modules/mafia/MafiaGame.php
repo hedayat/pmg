@@ -361,8 +361,8 @@ class MafiaGame {
         $this->setOp(Config::$mafiaRoom, Config::$nickname);
 
         //Remove password if any, just in case
-        $this->setMode(Config::$lobbyRoom, "-ki *");
-        $this->setMode(Config::$mafiaRoom, "-ki *");
+        $this->setMode(Config::$lobbyRoom, "-ki");
+        $this->setMode(Config::$mafiaRoom, "-ki");
         //Set private and secret flags :)
         $this->setMode(Config::$mafiaRoom, "+ps");
         //Remove modorated flag
@@ -745,7 +745,7 @@ class MafiaGame {
         }
 
 
-        $this->setMode(Config::$mafiaRoom, "+k " . $this->mafiaPass);
+        $this->setMode(Config::$mafiaRoom, "+ik " . $this->mafiaPass);
         //$this->setMode(Config::$lobbyRoom , "+k " . $this->lobbyPass);
 
         $listOfUsers = array_keys($this->inGameNicks);
