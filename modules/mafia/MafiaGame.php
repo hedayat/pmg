@@ -1055,7 +1055,7 @@ class MafiaGame {
                 break;
         }
 
-        MafiaGame::saveGame();
+        MafiaGame::saveGame(true);
     }
 
     /**
@@ -1502,13 +1502,14 @@ class MafiaGame {
         self::$gameName = $name;
     }
 
-    public static function saveGame() {
+    public static function saveGame($auto = false) {
         try {
             mkdir(dirname(__FILE__) . '/saves');
             $savePath = dirname(__FILE__) . '/saves/' . md5(self::$gameName);
             $data = serialize(self::$instanse);
             file_put_contents($savePath, $data);
-            Server::getInstance()->message(Config::$lobbyRoom, "Save game : " . self::$gameName);
+            if ($auto && self::$VERBOSE)
+                Server::getInstance()->message(Config::$lobbyRoom, "Save game : " . self::$gameName);
         } catch (Exception $e) {
             Server::getInstance()->message(Config::$lobbyRoom, "Save game failed " . $e->getMessage());
         }
