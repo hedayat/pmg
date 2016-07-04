@@ -14,6 +14,7 @@ abstract class Module {
 	
 	public $runMessage;
 	public $senderNick;
+	public $actualSenderNick;
 	public $channel;
 	public $eventType;
 	public $targetNick;
@@ -28,8 +29,10 @@ abstract class Module {
 	 * @param string The target of the action, if applicable
 	 */
 	public function __construct($runMessage, $senderNick, $channel=false, $eventType=false, $targetNick=false) {
-		$this->runMessage = $runMessage;
-		$this->senderNick = $senderNick;
+		list($this->runMessage, $this->senderNick) = explode(" BY::", $runMessage);
+		if (!$this->senderNick)
+			$this->senderNick = $senderNick;
+		$this->actualSenderNick = $senderNick;
 		$this->channel = $channel;
 		$this->eventType = $eventType;
 		$this->targetNick = $targetNick;
