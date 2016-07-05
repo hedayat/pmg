@@ -9,7 +9,7 @@ use config\Config;
 
 class MafiaOpt extends Module {
 
-    public static $requiredUserLevel = 7;
+    public static $requiredUserLevel = 0;
 
     private function showIdentityState() {
         $server = Server::getInstance();
@@ -69,6 +69,8 @@ class MafiaOpt extends Module {
     }
 
     public function run() {
+	if ($this->getLevel($this->senderNick) < 7)
+		return;
         $server = Server::getInstance();
         $opt = $this->parameters(1);
         if (!$opt) {

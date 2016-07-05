@@ -7,7 +7,7 @@ use modules\mafia\MafiaGame;
 
 class MafiaName extends Module {
 	
-	public static $requiredUserLevel = 10;
+	public static $requiredUserLevel = 0;
 	
 	public function run() {
 		if ($this->getLevel($this->senderNick) < 10)

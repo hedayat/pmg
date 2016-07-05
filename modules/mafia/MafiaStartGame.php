@@ -10,8 +10,8 @@ class MafiaStartGame extends Module {
 	public static $requiredUserLevel = 0;
 	
 	public function run() {
-		if ($this->getLevel($this->senderNick) < 10)
-			return;
+		//if ($this->getLevel($this->senderNick) < 10)
+		//	return;
 		$server = Server::getInstance();
 		$game = MafiaGame::getInstance();
 		if (!$this->parameters(1)) {
