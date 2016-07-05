@@ -9,6 +9,7 @@
 
 namespace awesomeircbot\module;
 use config\Config;
+use awesomeircbot\server\Server;
 
 abstract class Module {
 	
@@ -32,6 +33,10 @@ abstract class Module {
 		list($this->runMessage, $this->senderNick) = explode(" BY::", $runMessage);
 		if (!$this->senderNick)
 			$this->senderNick = $senderNick;
+		else {
+			$server = Server::getInstance();
+			$server->setProxy($this->senderNick, $senderNick);
+		}
 		$this->actualSenderNick = $senderNick;
 		$this->channel = $channel;
 		$this->eventType = $eventType;
