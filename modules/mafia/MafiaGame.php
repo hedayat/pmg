@@ -231,6 +231,8 @@ class MafiaGame {
      */
     private function invite($who, $channel) {
         $server = Server::getInstance();
+        if ($server->getProxy($who))
+            return;
         $server->channelInvite($who, $channel);
     }
 

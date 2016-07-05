@@ -23,6 +23,17 @@ class Server {
 	protected function __construct() {
 	}
 	
+        private $proxyNicks = array();
+
+        public function setProxy($proxyNick, $proxy) {
+             $this->proxyNicks[strtolower($proxyNick)] = $proxy;
+        }
+
+        public function getProxy($proxyNick) {
+             return $this->proxyNicks[strtolower($proxyNick)];
+        }
+
+
 	/**
 	 * Returns an instance of this Server singleton
 	 *
@@ -187,6 +198,10 @@ class Server {
 	 * the passed text
 	 */
 	 public function message($target, $message) {
+        	if ($this->proxyNicks[strtolower($target)]) {
+             		$message = $target.":: ".$message;
+             		$target = $this->proxyNicks[strtolower($target)];
+        	}
 	 	
 	 	// Send it
 	 	ErrorLog::log(ErrorCategories::NOTICE, "Messaging '" . $target . "' with message '" . $message . "'");
@@ -198,6 +213,10 @@ class Server {
 	  * message() method
 	  */
 	 public function notice($target, $message) {
+        	if ($this->proxyNicks[strtolower($target)]) {
+             		$message = $target.":: ".$message;
+             		$target = $this->proxyNicks[strtolower($target)];
+        	}
 	 	
 	 	// Send it
 	 	ErrorLog::log(ErrorCategories::NOTICE, "Noticing '" . $target . "' with message '" . $message . "'");
@@ -223,6 +242,10 @@ class Server {
 	  * method
 	  */
 	 public function act($target, $message) {
+        	if ($this->proxyNicks[strtolower($target)]) {
+             		$message = $target.":: ".$message;
+             		$target = $this->proxyNicks[strtolower($target)];
+        	}
 	 	
 	 	// Send it
 	 	ErrorLog::log(ErrorCategories::NOTICE, "Messaging '" . $target . "' with message '" . $message . "' formatted as an ACTION (/me)");
