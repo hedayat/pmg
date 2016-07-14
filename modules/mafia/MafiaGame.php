@@ -657,7 +657,7 @@ class MafiaGame {
             } else {
                 $this->say($nick, MafiaGame::boco(9, _("You are <NOT> mafia!")));
                 if (self::$VERBOSE) {
-                    $this->say($nick, sprintf(_("The game begin, go to sleep! (Join %s room please and stay away from %s its dangerous!)", Config::$lobbyRoom, Config::$mafiaRoom));
+                    $this->say($nick, sprintf(_("The game begin, go to sleep! (Join %s room please and stay away from %s its dangerous!)", Config::$lobbyRoom, Config::$mafiaRoom)));
                     //$this->say($nick, Config::$lobbyRoom); #. _(" Password : ") . $this->lobbyPass);
                 }
 

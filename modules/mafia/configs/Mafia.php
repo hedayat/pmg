@@ -48,7 +48,10 @@ class Mafia implements ModuleConfig {
 	public static $mappedTriggers = array(
 	);
 
-	public static $help = array(
+	public static $help;
+}
+
+Mafia::$help = array(
 		"MAFIA COMMANDS: (" => array(
 			"BASE" => array(
 				"description" => _("Not a command itself!"),
@@ -237,5 +240,4 @@ class Mafia implements ModuleConfig {
 		),
 	);
 
-}
 ?>
