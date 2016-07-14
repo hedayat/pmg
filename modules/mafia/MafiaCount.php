@@ -14,7 +14,7 @@ class MafiaCount extends Module {
         $game = MafiaGame::getInstance();
         $server = Server::getInstance();
 
-        $server->message($this->senderNick, "Player count : " . $game->getCount());
+        $server->message($this->senderNick, _("Player count : ") . $game->getCount());
     }
 
 }

@@ -17,13 +17,13 @@ class MafiaWish extends Module {
 		
 		if ($game->getState() == MAFIA_TURN)
 		{
-			$server->message($I, "A wish in night? you are crazy!");
+			$server->message($I, _("A wish in night? you are crazy!"));
 			return;
 		}
 
 		if (!$game->isIn($I))
 		{
-			$server->message($I, "You are not in game ;) may be next time");
+			$server->message($I, _("You are not in game ;) may be next time"));
 			return;
 		}
 		$wish = $this->parameters(1 , true);

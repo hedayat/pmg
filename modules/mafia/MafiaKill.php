@@ -16,19 +16,19 @@ class MafiaKill extends Module {
 		$I = $this->senderNick;
 		if ($game->getState() != MAFIA_TURN)
 		{
-			$server->message($I, "Not killing time!");
+			$server->message($I, _("Not killing time!"));
 			return;
 		}
 		
 		if (!$game->isIn($I))
 		{
-			$server->message($I, "You are not in game ;) may be next time");
+			$server->message($I, _("You are not in game ;) may be next time"));
 			return;
 		}
 		$you = $this->parameters(1);
 		if (!$game->isIn($you) && $you != "*" && $you != '-') 
 		{
-			$server->message($I, "$you is not in game ;) so why hate him/her this much?");
+			$server->message($I, _("$you is not in game ;) so why hate him/her this much?"));
 			return;
 		}
 		$game->iSayKillYou($I , $you);

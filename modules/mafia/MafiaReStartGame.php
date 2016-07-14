@@ -15,6 +15,6 @@ class MafiaReStartGame extends Module {
 			return;
 		$server = Server::getInstance();
 		$game = MafiaGame::getInstance(true);
-		$server->message(Config::$lobbyRoom, "Game restarted!");
+		$server->message(Config::$lobbyRoom, _("Game restarted!"));
 	}
 }

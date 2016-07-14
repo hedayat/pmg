@@ -25,7 +25,7 @@ class MafiaValidate extends Module {
             }
         }
         if (!$found) {
-            $server->act($this->senderNick, "User $user not found in registered user!");
+            $server->act($this->senderNick, _("User $user not found in registered user!"));
             $game->removeNick($user);
             return false;
         }
@@ -55,13 +55,13 @@ class MafiaValidate extends Module {
         //    $game->removeNick($who);
         // }
 
-        $server->act($this->senderNick, "Validation of user $user done!");
+        $server->act($this->senderNick, _("Validation of user $user done!"));
 
         //    self::$lastValidateTime = 0;
         //     self::$lastValidateUser = '';
         //    }
         //    if (strtolower($user) == strtolower(self::$lastValidateUser) && self::$lastValidateUser != '') {
-        //        $server->act($this->senderNick, "Another validate of user " . self::$lastValidateUser . " in progress! wait please.");
+        //        $server->act($this->senderNick, _("Another validate of user ") . self::$lastValidateUser . _(" in progress! wait please."));
         //    }
     }
 

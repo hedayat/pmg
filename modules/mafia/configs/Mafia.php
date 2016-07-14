@@ -51,188 +51,188 @@ class Mafia implements ModuleConfig {
 	public static $help = array(
 		"MAFIA COMMANDS: (" => array(
 			"BASE" => array(
-				"description" => "Not a command itself!",
+				"description" => _("Not a command itself!"),
 				"parameters" => false
 			)
 		),
 		"register" => array(
 			"BASE" => array(
-				"description" => "Join to the game",
+				"description" => _("Join to the game"),
 				"parameters" => false
 			)
 		),
 		"leave" => array(
 			"BASE" => array(
-				"description" => "Leave the game",
+				"description" => _("Leave the game"),
 				"parameters" => false
 			)
 		),
 		"opt" => array(
 			"BASE" => array(
-				"description" => "Show current options",
+				"description" => _("Show current options"),
 				"parameters" => false
 			),
 			"show-mafia" => array(
-				"description" => "Show identity on day punish",
-				"parameters" => "0|1"
+				"description" => _("Show identity on day punish"),
+				"parameters" => _("0|1")
 			),
 			"mafia-state" => array(
-				"description" => "Set when mafia will win: 0: mafia count = ppl count, 1: mafia count = 0",
-				"parameters" => "0|1"
+				"description" => _("Set when mafia will win: 0: mafia count = ppl count, 1: mafia count = 0"),
+				"parameters" => _("0|1")
 			),
 			"dead-talk" => array(
-				"description" => "Set if dead can talk (1: dead can talk, 0: dead cannot talk)",
-				"parameters" => "0|1"
+				"description" => _("Set if dead can talk (1: dead can talk, 0: dead cannot talk)"),
+				"parameters" => _("0|1")
 			),
 			"verbose" => array(
-				"description" => "Set if verbose mode should be enabled",
-				"parameters" => "0|1"
+				"description" => _("Set if verbose mode should be enabled"),
+				"parameters" => _("0|1")
 			),
 			"night-time" => array(
-				"description" => "Minimum allowed night time (at least 100)",
-				"parameters" => "<seconds>"
+				"description" => _("Minimum allowed night time (at least 100)"),
+				"parameters" => _("<seconds>")
 			),
 			"day-time" => array(
-				"description" => "Minimum allowed day time (at least 100)",
-				"parameters" => "<seconds>"
+				"description" => _("Minimum allowed day time (at least 100)"),
+				"parameters" => _("<seconds>")
 			)
 		),
 		"name" => array(
 			"BASE" => array(
-				"description" => "Set the name of the game",
-				"parameters" => "<game_name>"
+				"description" => _("Set the name of the game"),
+				"parameters" => _("<game_name>")
 			)
 		),
 		"save" => array(
 			"BASE" => array(
-				"description" => "Save current game and optionally set the name of the current game",
-				"parameters" => "[<game_name>]"
+				"description" => _("Save current game and optionally set the name of the current game"),
+				"parameters" => _("[<game_name>]")
 			)
 		),
 		"load" => array(
 			"BASE" => array(
-				"description" => "Load saved game and optionally set the name of the current game",
-				"parameters" => "[<game_name>]"
+				"description" => _("Load saved game and optionally set the name of the current game"),
+				"parameters" => _("[<game_name>]")
 			)
 		),
 		"start" => array(
 			"BASE" => array(
-				"description" => "Start game",
-				"parameters" => "<mafiacount> [<have_dr> [<have_detective> [<have_invulnerable>]]]"
+				"description" => _("Start game"),
+				"parameters" => _("<mafiacount> [<have_dr> [<have_detective> [<have_invulnerable>]]]")
 			)
 		),
 		"restart" => array(
 			"BASE" => array(
-				"description" => "ReStart game to register again",
+				"description" => _("ReStart game to register again"),
 				"parameters" => false
 			)
 		),
 		"whoami" => array(
 			"BASE" => array(
-				"description" => "Ask who you are in the current game",
+				"description" => _("Ask who you are in the current game"),
 				"parameters" => false
 			)
 		),
 		"count" => array(
 			"BASE" => array(
-				"description" => "Prints the number of players",
+				"description" => _("Prints the number of players"),
 				"parameters" => false
 			)
 		),
 		"list" => array(
 			"BASE" => array(
-				"description" => "List all registered and in game state",
+				"description" => _("List all registered and in game state"),
 				"parameters" => false
 			)
 		),
 		"vote" => array(
 			"BASE" => array(
-				"description" => "List current votes",
+				"description" => _("List current votes"),
 				"parameters" => false
 			)
 		),
 		"punish" => array(
 			"BASE" => array(
-				"description" => "Day command to punish sombebody, or remove vote (-)",
-				"parameters" => "<nick>|-"
+				"description" => _("Day command to punish sombebody, or remove vote (-)"),
+				"parameters" => _("<nick>|-")
 			)
 		),
 		"timeout" => array(
 			"BASE" => array(
-				"description" => "Request timeout",
+				"description" => _("Request timeout"),
 				"parameters" => false
 			)
 		),
 		"kill" => array(
 			"BASE" => array(
-				"description" => "Mafia command, kill somebody, or nobody (*), or remote vote (-)",
-				"parameters" => "<nick>|-|*"
+				"description" => _("Mafia command, kill somebody, or nobody (*), or remote vote (-)"),
+				"parameters" => _("<nick>|-|*")
 			)
 		),
 		"heal" => array(
 			"BASE" => array(
-				"description" => "Heal in night time",
-				"parameters" => "<nick>"
+				"description" => _("Heal in night time"),
+				"parameters" => _("<nick>")
 			)
 		),
 		"whois" => array(
 			"BASE" => array(
-				"description" => "Detector command in night time to ask if someone is mafia",
-				"parameters" => "<nick>"
+				"description" => _("Detector command in night time to ask if someone is mafia"),
+				"parameters" => _("<nick>")
 			)
 		),
 		"wish" => array(
 			"BASE" => array(
-				"description" => "A wish by the last one dead at night",
-				"parameters" => "<wish>"
+				"description" => _("A wish by the last one dead at night"),
+				"parameters" => _("<wish>")
 			)
 		),
 		"mafia" => array(
 			"BASE" => array(
-				"description" => "Say you think someone is mafia",
-				"parameters" => "<nick> [<reason>]"
+				"description" => _("Say you think someone is mafia"),
+				"parameters" => _("<nick> [<reason>]")
 			)
 		),
 		"slap" => array(
 			"BASE" => array(
-				"description" => "Slap somebody!",
-				"parameters" => "<nick> [<reason>]"
+				"description" => _("Slap somebody!"),
+				"parameters" => _("<nick> [<reason>]")
 			)
 		),
 		"voice" => array(
 			"BASE" => array(
-				"description" => "Ask for voice, if you should have it but don't",
+				"description" => _("Ask for voice, if you should have it but don't"),
 				"parameters" => false
 			)
 		),
 		"validate" => array(
 			"BASE" => array(
-				"description" => "Remove a user which has left channel from the game",
-				"parameters" => "<nick>"
+				"description" => _("Remove a user which has left channel from the game"),
+				"parameters" => _("<nick>")
 			)
 		),
 		" ) " => array(
 			"BASE" => array(
-				"description" => "Not a command itself!",
+				"description" => _("Not a command itself!"),
 				"parameters" => false
 			)
 		),
 		"kick" => array(
 			"BASE" => array(
-				"description" => "Kick a user out of channel",
+				"description" => _("Kick a user out of channel"),
 				"parameters" => false
 			)
 		),
 		"drop" => array(
 			"BASE" => array(
-				"description" => "Remove a nick from game",
+				"description" => _("Remove a nick from game"),
 				"parameters" => false
 			)
 		),
 		"raw" => array(
 			"BASE" => array(
-				"description" => "Send raw message ",
-				"parameters" => "<rawmessage>"
+				"description" => _("Send raw message "),
+				"parameters" => _("<rawmessage>")
 			)
 		),
 	);

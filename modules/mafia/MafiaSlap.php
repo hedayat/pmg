@@ -25,25 +25,25 @@ class MafiaSlap extends Module {
 
         $I = $this->senderNick;
         if (!$game->isIn($I)) {
-            $server->message($I, "You are not in game ;)");
+            $server->message($I, _("You are not in game ;)"));
             return;
         }
 
         if (!MafiaGame::$DEAD_IS_TALKING) {
             if ($game->isAlive($I)) {
-                $server->message($I, "You are alive, In dead IS dead mode, you can not use emots if you are alive. use your own hand for slap!!!");
+                $server->message($I, _("You are alive, In dead IS dead mode, you can not use emots if you are alive. use your own hand for slap!!!"));
                 return;
             }
         }
 
         $target = $this->parameters(1);
         if (!$game->isIn($target)) {
-            $server->message($I, "$target is not in game ;) so why hate him/her this much?");
+            $server->message($I, _("$target is not in game ;) so why hate him/her this much?"));
             return;
         }
 
         $cleareString = $this->ParseString($this->parameters(2, true));
-        $server->message(Config::$lobbyRoom, "$I slaps " . $this->parameters(1) . ' ' . $cleareString);
+        $server->message(Config::$lobbyRoom, _("$I slaps $target $cleareString"));
     }
 
     public function ParseString($str) {

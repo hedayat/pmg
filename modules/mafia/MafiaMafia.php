@@ -25,7 +25,7 @@ class MafiaMafia extends Module {
 
         $I = $this->senderNick;
         if (!$game->isIn($I)) {
-            $server->message($I, "You are not in game ;)");
+            $server->message($I, _("You are not in game ;)"));
             return;
         }
         
@@ -33,19 +33,19 @@ class MafiaMafia extends Module {
         {
             if ($game->isAlive($I))
             {
-                $server->message($I, "You are alive, In dead IS dead mode, you can not use emots if you are alive. say it your self!!");
+                $server->message($I, _("You are alive, In dead IS dead mode, you can not use emots if you are alive. say it your self!!"));
                 return;
             }
         }        
 
         $target = $this->parameters(1);
         if (!$game->isIn($target)) {
-            $server->message($I, "$target is not in game ;) so why hate him/her this much?");
+            $server->message($I, _("$target is not in game ;) so why hate him/her this much?"));
             return;
         }
 
         $cleareString = $this->ParseString($this->parameters(2, true));
-        $server->message(Config::$lobbyRoom, "$I think " . $target . ' is Mafia ' . $cleareString);
+        $server->message(Config::$lobbyRoom, _("$I think ") . $target . _(' is Mafia ') . $cleareString);
     }
 
     public function ParseString($str) {

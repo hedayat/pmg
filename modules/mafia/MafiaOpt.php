@@ -14,28 +14,28 @@ class MafiaOpt extends Module {
     private function showStates() {
         $server = Server::getInstance();
         if (MafiaGame::$SHOW_MAFIA_COUNT)
-            $server->message(Config::$lobbyRoom, "Show identity on day punish is ON (show-mafia 1)");
+            $server->message(Config::$lobbyRoom, _("Show identity on day punish is ON (show-mafia 1)"));
         else
-            $server->message(Config::$lobbyRoom, "Show identity on day punish is OFF (show-mafia 0)");
+            $server->message(Config::$lobbyRoom, _("Show identity on day punish is OFF (show-mafia 0)"));
 
         if (MafiaGame::$WON_STATE_NORMAL)
-            $server->message(Config::$lobbyRoom, "Mafia win state is when mafia cnt = ppl cnt (mafia-state 0)");
+            $server->message(Config::$lobbyRoom, _("Mafia win state is when mafia cnt = ppl cnt (mafia-state 0)"));
         else
-            $server->message(Config::$lobbyRoom, "Mafia win state is when ppl cnt = 0 (mafia-state 1)");
+            $server->message(Config::$lobbyRoom, _("Mafia win state is when ppl cnt = 0 (mafia-state 1)"));
 
 
         if (MafiaGame::$DEAD_IS_TALKING)
-            $server->message(Config::$lobbyRoom, "Dead people can talk (dead-talk 1)");
+            $server->message(Config::$lobbyRoom, _("Dead people can talk (dead-talk 1)"));
         else
-            $server->message(Config::$lobbyRoom, "Dead people can not talk (sorry) (dead-talk 0)");
+            $server->message(Config::$lobbyRoom, _("Dead people can not talk (sorry) (dead-talk 0)"));
 
         if (MafiaGame::$VERBOSE)
-            $server->message(Config::$lobbyRoom, "Verbose mode in ON (verbose 1)");
+            $server->message(Config::$lobbyRoom, _("Verbose mode in ON (verbose 1)"));
         else
-            $server->message(Config::$lobbyRoom, "Verbose mode in OFF (verbose 0)");
+            $server->message(Config::$lobbyRoom, _("Verbose mode in OFF (verbose 0)"));
 
-        $server->message(Config::$lobbyRoom, sprintf("Day timeout is %d secound (day-time %d)", MafiaGame::$DAY_TIMEOUT, MafiaGame::$DAY_TIMEOUT));
-        $server->message(Config::$lobbyRoom, sprintf("Night timeout is %d secound (night-time %d)", MafiaGame::$NIGHT_TIMEOUT, MafiaGame::$NIGHT_TIMEOUT));
+        $server->message(Config::$lobbyRoom, sprintf(_("Day timeout is %d secound (day-time %d)"), MafiaGame::$DAY_TIMEOUT, MafiaGame::$DAY_TIMEOUT));
+        $server->message(Config::$lobbyRoom, sprintf(_("Night timeout is %d secound (night-time %d)"), MafiaGame::$NIGHT_TIMEOUT, MafiaGame::$NIGHT_TIMEOUT));
     }
 
     public function run() {

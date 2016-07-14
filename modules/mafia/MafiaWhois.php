@@ -17,19 +17,19 @@ class MafiaWhois extends Module {
 		
 		if ($game->getState() != MAFIA_TURN)
 		{
-			$server->message($I, "Not a good time!");
+			$server->message($I, _("Not a good time!"));
 			return;
 		}
 
 		if (!$game->isIn($I))
 		{
-			$server->message($I, "You are not in game ;) may be next time");
+			$server->message($I, _("You are not in game ;) may be next time"));
 			return;
 		}
 		$you = $this->parameters(1);
 		if (!$game->isIn($you) && $you != "*")
 		{
-			$server->message($I, "$you is not in game ;) why so suspicious about him/her?");
+			$server->message($I, _("$you is not in game ;) why so suspicious about him/her?"));
 			return;
 		}
 		$game->iSayWhoAreYou($I , $you);

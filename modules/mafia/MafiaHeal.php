@@ -16,17 +16,17 @@ class MafiaHeal extends Module {
 
         $I = $this->senderNick;
         if ($game->getState() != MAFIA_TURN) {
-            $server->message($I, "Not healing time!");
+            $server->message($I, _("Not healing time!"));
             return;
         }
 
         if (!$game->isIn($I)) {
-            $server->message($I, "You are not in game ;) may be next time");
+            $server->message($I, _("You are not in game ;) may be next time"));
             return;
         }
         $you = $this->parameters(1);
         if (!$game->isIn($you) && $you != "*" && $you != "-") {
-            $server->message($I, "$you is not in game ;) are you in love with him/her?");
+            $server->message($I, _("$you is not in game ;) are you in love with him/her?"));
             return;
         }
         $game->iSayHealYou($I, $you);
