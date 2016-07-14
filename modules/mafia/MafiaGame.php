@@ -643,7 +643,7 @@ class MafiaGame {
         foreach ($this->inGamePart as $nick => $data) {
             if ($data['mode'] == MAFIA_PPL) {
                 $this->say($nick, MafiaGame::boco(9, _("You are mafia!!")));
-                $this->say($nick, MafiaGame::boco(9, _("others: "). $mafia_pl));
+                $this->say($nick, MafiaGame::boco(9, _("Mafia crew: "). $mafia_pl));
                 if (self::$VERBOSE) {
                     $this->say($nick, sprintf(_("You are mafia :D Please join %s and %s"),
                         Config::$mafiaRoom, Config::$lobbyRoom));
@@ -1486,7 +1486,12 @@ class MafiaGame {
         $data = $this->inGamePart[strtolower($I)];
 
         if ($data['mode'] == MAFIA_PPL) {
+             $mafia_pl = " ";
+             foreach ($this->inGamePart as $nick => $data)
+                 if ($data['mode'] == MAFIA_PPL)
+                    $mafia_pl = $mafia_pl . " " . $nick;
             $this->say($I, MafiaGame::boco(9, _("You are mafia!!")));
+            $this->say($nick, MafiaGame::boco(9, _("Mafia crew: "). $mafia_pl));
             if (self::$VERBOSE) {
                 $this->say($I, sprintf(_("You are mafia :D Please join %s and %s"), Config::$mafiaRoom, Config::$lobbyRoom));
                 $this->say($I, Config::$mafiaRoom . " Password : " . $this->mafiaPass . " and " . Config::$lobbyRoom); #. _(" Password : ") . $this->lobbyPass);
