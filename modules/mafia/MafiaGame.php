@@ -709,6 +709,10 @@ class MafiaGame {
             $this->say(Config::$lobbyRoom, "You need to set game name with !name command.");
             return;
         }
+        if ($mafia == 0) {
+            $this->say(Config::$lobbyRoom, "At least one mafia must exist!");
+            return;
+        }
         $normal = $this->getCount() - $mafia;
         if ($this->state <> 0)
             return;

@@ -14,6 +14,10 @@ class MafiaStartGame extends Module {
 			return;
 		$server = Server::getInstance();
 		$game = MafiaGame::getInstance();
+		if (!$this->parameters(1)) {
+			$server->message($this->senderNick, "Mafia count should be specified!");
+			return;
+		}
 		$mafia = intval ($this->parameters(1));
 		$dr = intval ($this->parameters(2));
 		$det = intval ($this->parameters(3));
