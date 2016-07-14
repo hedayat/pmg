@@ -17,7 +17,7 @@ class MafiaHelp extends Module {
         $server->notify($I, _("!punish <nick>  : To vote to punish <nick>"));
         $server->notify($I, _("!punish -  : To remove your vote"));
         $server->notify($I, _("!vote  : To see other people votes"));
-        $server->notify($I, sprintf(_("!timeout  : To end the day after %d seconds when 60% of players cast their vote."), MafiaGame::$DAY_TIMEOUT);
+        $server->notify($I, sprintf(_("!timeout  : To end the day after %d seconds when 60% of players cast their vote."), MafiaGame::$DAY_TIMEOUT));
         sleep(1);
 
         $server->notify($I, MafiaGame::bold(_("Night-only Commands:")));

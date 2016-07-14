@@ -1342,7 +1342,7 @@ class MafiaGame {
             if ($you != '*') {
                 $result = $this->getTypeOf($you) == MAFIA_PPL ? MafiaGame::boco(8, _("Mafia")) :
                         MafiaGame::boco(8, _("Citizen"));
-                $this->say($I, sprintf(_("%s is %s"), $you, $result);
+                $this->say($I, sprintf(_("%s is %s"), $you, $result));
             }
         } else {
             $this->say($I, _("You can not know $you!"));
