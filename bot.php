@@ -30,7 +30,15 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
 
 passthru('clear');
 
-echo "Welcome to Awesome IRC Bot v2\n";
+putenv("LANG=".Config::$language);
+setlocale(LC_ALL, Config::$language);
+
+define('TEXT_DOMAIN', 'messages');
+bindtextdomain(TEXT_DOMAIN, __DIR__.'/locale');
+textdomain(TEXT_DOMAIN);
+bind_textdomain_codeset(TEXT_DOMAIN, 'UTF-8');
+
+echo _("Welcome to Awesome IRC Bot v2\n");
 echo "Created by AwesomezGuy, follow @AwesomezGuy on Twitter\n";
 
 if (Config::$die)

@@ -94,6 +94,8 @@ class Config {
 	 *      All without notices or debug
 	 */
 	public static $verboseOutput = ErrorCategories::ALL;
+
+	public static $language = 'fa_IR.UTF-8';
 	
 	/**
 	 * Change the below line from true to false
