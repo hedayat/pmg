@@ -634,7 +634,7 @@ class MafiaGame {
     private function startInfo() {
         $this->topic(Config::$mafiaRoom, "Game in progress, and every thing is logged. Its mafia room!");
         $this->topic(Config::$lobbyRoom, "Game in progress, and every thing is logged. Its city room!");
-        $mafia_pl = " ";
+        $mafia_pl = "";
         foreach ($this->inGamePart as $nick => $data) {
             if ($data['mode'] == MAFIA_PPL) {
                $mafia_pl = $mafia_pl . " " . $nick;
@@ -1486,7 +1486,7 @@ class MafiaGame {
         $data = $this->inGamePart[strtolower($I)];
 
         if ($data['mode'] == MAFIA_PPL) {
-             $mafia_pl = " ";
+             $mafia_pl = "";
              foreach ($this->inGamePart as $nick => $data)
                  if ($data['mode'] == MAFIA_PPL)
                     $mafia_pl = $mafia_pl . " " . $nick;
