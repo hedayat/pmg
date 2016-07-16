@@ -22,6 +22,7 @@ class MafiaStartGame extends Module {
 		$dr = intval ($this->parameters(2));
 		$det = intval ($this->parameters(3));
 		$no = intval ($this->parameters(4));
-		$game->start($mafia,$dr,$det,$no);
+		$godfather = intval ($this->parameters(5));
+		$game->start($mafia,$dr,$det,$no, $godfather);
 	}
 }
