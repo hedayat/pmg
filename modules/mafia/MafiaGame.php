@@ -835,7 +835,7 @@ class MafiaGame {
         if (is_string($nick)) {
             if (!$this->isIn($nick))
                 return false;
-            $part = getGamePart($nick)['mode'];
+            $part = $this->getGamePart($nick)['mode'];
         }
         else
             $part = $nick['mode'];
@@ -848,7 +848,7 @@ class MafiaGame {
      * @return bool
      */
     public function isCitizen($nick) {
-        return !isMafia($nick);
+        return !$this->isMafia($nick);
     }
 
     /**
@@ -1000,7 +1000,7 @@ class MafiaGame {
         $game = self::getInstance();
         $count = 0;
         foreach ($game->inGamePart as $nick => $data) {
-            $type = $this->isMafia($data) ? 'Mafia' : 'NOT Mafia';
+            $type = $game->isMafia($data) ? 'Mafia' : 'NOT Mafia';
             $type .= $game->getTypeOf($nick) === DR_PPL ? ' AND Doctor' : '';
             $type .= $game->getTypeOf($nick) === DETECTIVE_PPL ? ' AND Detective' : '';
             $type .= $game->getTypeOf($nick) === NOHARM_PPL ? ' AND Invulnerable' : '';
