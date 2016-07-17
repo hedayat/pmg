@@ -644,7 +644,7 @@ class MafiaGame {
         foreach ($this->inGamePart as $nick => $data) {
             if ($this->isMafia($data)) {
                 if ($data['mode'] == GODFATHER_PPL)
-                    $this->say($I, MafiaGame::boco(9, _("You are the Godfather!!")));
+                    $this->say($nick, MafiaGame::boco(9, _("You are the Godfather!!")));
                 else
                     $this->say($nick, MafiaGame::boco(9, _("You are mafia!!")));
                 $this->say($nick, MafiaGame::boco(9, _("Mafia crew: "). $mafia_pl));
@@ -1533,8 +1533,8 @@ class MafiaGame {
 
         if ($this->isMafia($data)) {
              $mafia_pl = "";
-             foreach ($this->inGamePart as $nick => $data)
-                 if ($this->isMafia($data))
+             foreach ($this->inGamePart as $nick => $tmpdata)
+                 if ($this->isMafia($tmpdata))
                     $mafia_pl = $mafia_pl . " " . $nick;
             if ($data['mode'] == GODFATHER_PPL)
                 $this->say($I, MafiaGame::boco(9, _("You are the Godfather!!")));
