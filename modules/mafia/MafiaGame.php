@@ -849,7 +849,8 @@ class MafiaGame {
         if (is_string($nick)) {
             if (!$this->isIn($nick))
                 return false;
-            $part = $this->getGamePart($nick)['mode'];
+            $data = $this->getGamePart($nick);
+            $part = $data['mode'];
         }
         else
             $part = $nick['mode'];
