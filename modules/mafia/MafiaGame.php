@@ -657,7 +657,11 @@ class MafiaGame {
                     $this->say($nick, MafiaGame::boco(9, _("You are the Godfather!!")));
                 else
                     $this->say($nick, MafiaGame::boco(9, _("You are mafia!!")));
-                $this->say($nick, MafiaGame::boco(9, _("Mafia crew: "). $mafia_pl));
+
+                if (Server::getInstance()->getProxy($nick))
+                    $this->say($nick, "MAFIA_CREW" . MafiaGame::boco(9, _("Mafia crew: "). $mafia_pl));
+                else
+                    $this->say($nick, MafiaGame::boco(9, _("Mafia crew: "). $mafia_pl));
                 if (self::$VERBOSE) {
                     $this->say($nick, sprintf(_("You are mafia :D Please join %s and %s"),
                         Config::$mafiaRoom, Config::$lobbyRoom));
