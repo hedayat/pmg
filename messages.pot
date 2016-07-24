@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-21 17:51+0430\n"
+"POT-Creation-Date: 2016-07-24 10:49+0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -413,7 +413,13 @@ msgid "You are already in game, for exit use command !leave"
 msgstr ""
 
 #: modules/mafia/MafiaGame.php:476
-msgid " Welcome to game, wait for start :D you can read the manual at "
+#, php-format
+msgid "Welcome to game %s, wait for start :D you can read the manual at %s"
+msgstr ""
+
+#: modules/mafia/MafiaGame.php:477
+#, php-format
+msgid "%s joined to the game :), total players: %d"
 msgstr ""
 
 #: modules/mafia/MafiaGame.php:526

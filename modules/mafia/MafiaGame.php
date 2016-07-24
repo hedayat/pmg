@@ -473,8 +473,8 @@ class MafiaGame {
         $this->inGameNicks[strtolower($nick)] = $nick;
         $this->inGamePart[strtolower($nick)] = array('mode' => NORMAL_PPL, 'alive' => true);
 
-        $this->say($nick, MafiaGame::colorize(3, $nick) . _(" Welcome to game, wait for start :D you can read the manual at ") . Config::$manualLink);
-        $this->act(Config::$lobbyRoom, MafiaGame::colorize(3, $nick) . _(" joined to the game :), total players: {$this->getCount()}"));
+        $this->say($nick, sprintf(_("Welcome to game %s, wait for start :D you can read the manual at %s"), MafiaGame::colorize(3, $nick), Config::$manualLink));
+        $this->act(Config::$lobbyRoom, sprintf(_("%s joined to the game :), total players: %d"), MafiaGame::colorize(3, $nick), $this->getCount()));
     }
 
     /**
