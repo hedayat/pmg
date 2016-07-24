@@ -439,7 +439,7 @@ msgstr "شما مافیا هستید!!"
 
 #: modules/mafia/MafiaGame.php:650 modules/mafia/MafiaGame.php:1544
 msgid "Mafia crew: "
-msgstr "تیم مافیا:"
+msgstr "تیم مافیا: "
 
 #: modules/mafia/MafiaGame.php:652 modules/mafia/MafiaGame.php:1546
 #, php-format
