@@ -102,7 +102,6 @@ class MafiaGame {
     private $dayTurnTime = 0;
 
     private $punishStartTime = 0;
-    private $punishVoteCount = 0;
     private $punishWho = "";
 
     /**
@@ -1334,6 +1333,13 @@ class MafiaGame {
             $this->say($I, _("Your vote not accepted!"));
         }
 
+        $nokill = false;
+        foreach ($this->punishVotes as $vote)
+            if ($vote === false) {
+                $nokill = true;
+                break;
+            }
+
         //$this->nightTimeEnd();
         $result = array_count_values($this->punishVotes);
         $max = -1;
@@ -1342,7 +1348,8 @@ class MafiaGame {
         $hasDuplicate = false;
         foreach ($result as $dead => $wanted) {
             if ($dead === false) continue;
-            $this->say(Config::$lobbyRoom, MafiaGame::boco(2, $dead) . _(" has $wanted vote(s)"));
+            if (!$nokill)
+                $this->say(Config::$lobbyRoom, MafiaGame::boco(2, $dead) . _(" has $wanted vote(s)"));
             if ($wanted == $max)
                 $hasDuplicate = true;
             elseif ($wanted > $max) {
@@ -1351,34 +1358,30 @@ class MafiaGame {
                 $hasDuplicate = false;
             }
         }
-        if ($this->punishStartTime > 0 && ($this->punishWho != $who || $max < $this->punishVoteCount))
+        if ($this->punishStartTime > 0 && ($this->punishWho != $who || $hasDuplicate))
         {
             $this->say(Config::$lobbyRoom, MafiaGame::bold(_("Punishing canceled!")));
             $this->punishStartTime = 0;
         }
 
-        foreach ($this->punishVotes as $vote)
-            if ($vote === false)
-                return false;
+        if ($nokill)
+            return;
 
         if ($hasDuplicate) {
             $this->say(Config::$lobbyRoom, MafiaGame::bold(_("There is a tie! please some one fix his/her vote!")));
-            $this->punishStartTime = 0;
             return;
         }
 
         if ($this->punishStartTime == 0 || $this->punishWho != $who)
         {
             $this->punishStartTime = time();
-            $this->punishVoteCount = $max;
             $this->punishWho = $who;
-            $this->say(Config::$lobbyRoom, sprintf(_("You will punish %s in %d seconds if his/her votes don't decrease..."), MafiaGame::boco(2, $who), self::$PUNISH_TIMEOUT);
+            $this->say(Config::$lobbyRoom, sprintf(_("You will punish %s in %d seconds if his/her votes don't decrease..."), MafiaGame::boco(2, $who), self::$PUNISH_TIMEOUT));
             return;
         }
         else if (time() - $this->punishStartTime < self::$PUNISH_TIMEOUT)
         {
-            $this->punishVoteCount = $max;
-            $this->say(Config::$lobbyRoom, sprintf(_("You will punish %s in %d seconds if his/her votes don't decrease..."), MafiaGame::boco(2, $who), self::$PUNISH_TIMEOUT + $this->punishStartTime - time());
+            $this->say(Config::$lobbyRoom, sprintf(_("You will punish %s in %d seconds if his/her votes don't decrease..."), MafiaGame::boco(2, $who), self::$PUNISH_TIMEOUT + $this->punishStartTime - time()));
             return;
         }
         $this->inGamePart[strtolower($who)]['alive'] = false;
@@ -1539,7 +1542,7 @@ class MafiaGame {
                         $this->iSayPunishYou($who, $who);
                     }
                 }
-                $this->doNight();
+                //$this->doNight();
             } else {
                 $this->say(Config::$lobbyRoom, sprintf(_("%d secound remain from day, %d player of %d cast their vote!"), self::$DAY_TIMEOUT - $remain, $count, $players));
             }
