@@ -1237,9 +1237,7 @@ class MafiaGame {
             $this->state = DAY_TURN;
             $this->say(Config::$mafiaRoom, sprintf(_("You kill %s"), MafiaGame::boco(2, $who)));
             $this->say(Config::$lobbyRoom, sprintf(_("ALERT!!! They killed %s, lets find the killer!"), MafiaGame::boco(2, $who)));
-            $this->say($who, sprintf(MafiaGame::bold(
-                _("You are dead! please respect others and be quiet. Thanks. you can use %s command ONLY ONCE!! to make your last wish.")),
-                MafiaGame::colorize(3, '!wish')));
+            $this->say($who, MafiaGame::bold(_("You are dead! please respect others and be quiet. Thanks.")));
             $sayMe = $who;
         } else {
             $this->state = DAY_TURN;
@@ -1250,8 +1248,6 @@ class MafiaGame {
         if (self::$VERBOSE)
             $this->listAllUsers(Config::$lobbyRoom);
         $this->sayStatus($sayMe);
-        $this->lastDead = $who;
-        $this->lastWish = false;
         return $who;
     }
 
@@ -1388,8 +1384,12 @@ class MafiaGame {
         $this->state = MAFIA_TURN;
         $this->act(Config::$mafiaRoom, _("Your turn to kill!"));
         $this->say(Config::$lobbyRoom, _("You punish ") . MafiaGame::boco(2, $who));
-        $this->say($who, MafiaGame::bold(_("You are dead! please respect others and be quiet. Thanks.")));
+        $this->say($who, sprintf(MafiaGame::bold(
+            _("You are dead! please respect others and be quiet. Thanks. You can use %s command ONLY ONCE to make your last wish.")),
+            MafiaGame::colorize(3, '!wish')));
         $this->punishStartTime = 0;
+        $this->lastDead = $who;
+        $this->lastWish = false;
 
         $this->sayStatus();
         return $who;

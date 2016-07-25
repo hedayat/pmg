@@ -45,7 +45,7 @@ class MafiaHelp extends Module {
         sleep(1);
 
         $server->notify($I, MafiaGame::bold(_("Dead Commands:")));
-        $server->notify($I, _("!wish <wish> : To say your last wish after being killed at night!"));
+        $server->notify($I, _("!wish <wish> : To say your last wish after being punished!"));
         $server->notify($I, _("!slap <nick> [<reason>] : To slap somebody!"));
         $server->notify($I, _("!mafia <nick> [<reason>] : To say you think someone is mafia!"));
         sleep(1);

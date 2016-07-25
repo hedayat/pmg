@@ -15,12 +15,12 @@ class MafiaWish extends Module {
 		
 		$I = $this->senderNick;
 		
-		if ($game->getState() == MAFIA_TURN)
+/*		if ($game->getState() == MAFIA_TURN)
 		{
 			$server->message($I, _("A wish in night? you are crazy!"));
 			return;
 		}
-
+*/
 		if (!$game->isIn($I))
 		{
 			$server->message($I, _("You are not in game ;) may be next time"));

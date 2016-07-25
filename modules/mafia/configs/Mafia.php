@@ -186,7 +186,7 @@ Mafia::$help = array(
 		),
 		"wish" => array(
 			"BASE" => array(
-				"description" => _("A wish by the last one dead at night"),
+				"description" => _("A wish by the last one punished during a day"),
 				"parameters" => _("<wish>")
 			)
 		),
