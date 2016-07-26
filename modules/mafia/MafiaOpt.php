@@ -54,13 +54,13 @@ class MafiaOpt extends Module {
     private function showStates() {
         $server = Server::getInstance();
 
-        showIdentityState();
-        showWinState();
-        showDeadTalkState();
-        showVerboseState();
-        showDayTimeout();
-        showNightTimeout();
-        showPunishTimeout();
+        $this->showIdentityState();
+        $this->showWinState();
+        $this->showDeadTalkState();
+        $this->showVerboseState();
+        $this->showDayTimeout();
+        $this->showNightTimeout();
+        $this->showPunishTimeout();
     }
 
     public function run() {
@@ -75,22 +75,22 @@ class MafiaOpt extends Module {
             case "SHOW-MAFIA":
                 if ($value)
                     MafiaGame::$SHOW_MAFIA_COUNT = $value;
-                showIdentityState();
+                $this->showIdentityState();
                 break;
             case "MAFIA-STATE":
                 if ($value)
                     MafiaGame::$WON_STATE_NORMAL = $value;
-                showWinState();
+                $this->showWinState();
                 break;
             case "DEAD-TALK":
                 if ($value)
                     MafiaGame::$DEAD_IS_TALKING = $value;
-                showDeadTalkState();
+                $this->showDeadTalkState();
                 break;
             case "VERBOSE":
                 if ($value)
                     MafiaGame::$VERBOSE = $value;
-                showVerboseState();
+                $this->showVerboseState();
                 break;
             case "NIGHT-TIME":
                 if ($value) {
@@ -98,7 +98,7 @@ class MafiaOpt extends Module {
                     if (MafiaGame::$NIGHT_TIMEOUT < 100)
                         MafiaGame::$NIGHT_TIMEOUT = 100;
                 }
-                showNightTimeout();
+                $this->showNightTimeout();
                 break;
             case "DAY-TIME":
                 if ($value) {
@@ -106,12 +106,12 @@ class MafiaOpt extends Module {
                     if (MafiaGame::$DAY_TIMEOUT < 100)
                         MafiaGame::$DAY_TIMEOUT = 100;
                 }
-                showDayTimeout();
+                $this->showDayTimeout();
                 break;
             case "PUNISH-TIME":
                 if ($value)
                     MafiaGame::$PUNISH_TIMEOUT = intval($value);
-                showPunishTimeout();
+                $this->showPunishTimeout();
                 break;
         }
     }
