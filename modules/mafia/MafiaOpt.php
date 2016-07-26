@@ -12,6 +12,7 @@ class MafiaOpt extends Module {
     public static $requiredUserLevel = 7;
 
     private function showIdentityState() {
+        $server = Server::getInstance();
         if (MafiaGame::$SHOW_MAFIA_COUNT)
             $server->message(Config::$lobbyRoom, _("Show identity on day punish is ON (show-mafia 1)"));
         else
@@ -19,6 +20,7 @@ class MafiaOpt extends Module {
     }
 
     private function showWinState() {
+        $server = Server::getInstance();
         if (MafiaGame::$WON_STATE_NORMAL)
             $server->message(Config::$lobbyRoom, _("Mafia win state is when mafia cnt = ppl cnt (mafia-state 0)"));
         else
@@ -26,6 +28,7 @@ class MafiaOpt extends Module {
     }
 
     private function showDeadTalkState() {
+        $server = Server::getInstance();
         if (MafiaGame::$DEAD_IS_TALKING)
             $server->message(Config::$lobbyRoom, _("Dead people can talk (dead-talk 1)"));
         else
@@ -33,6 +36,7 @@ class MafiaOpt extends Module {
     }
 
     private function showVerboseState() {
+        $server = Server::getInstance();
         if (MafiaGame::$VERBOSE)
             $server->message(Config::$lobbyRoom, _("Verbose mode in ON (verbose 1)"));
         else
@@ -40,20 +44,21 @@ class MafiaOpt extends Module {
     }
 
     private function showDayTimeout() {
+        $server = Server::getInstance();
         $server->message(Config::$lobbyRoom, sprintf(_("Day timeout is %d secound (day-time %d)"), MafiaGame::$DAY_TIMEOUT, MafiaGame::$DAY_TIMEOUT));
     }
 
     private function showNightTimeout() {
+        $server = Server::getInstance();
         $server->message(Config::$lobbyRoom, sprintf(_("Night timeout is %d secound (night-time %d)"), MafiaGame::$NIGHT_TIMEOUT, MafiaGame::$NIGHT_TIMEOUT));
     }
 
     private function showPunishTimeout() {
+        $server = Server::getInstance();
         $server->message(Config::$lobbyRoom, sprintf(_("Last defense timeout is %d secound(s) (punish-time %d)"), MafiaGame::$PUNISH_TIMEOUT, MafiaGame::$PUNISH_TIMEOUT));
     }
 
     private function showStates() {
-        $server = Server::getInstance();
-
         $this->showIdentityState();
         $this->showWinState();
         $this->showDeadTalkState();
