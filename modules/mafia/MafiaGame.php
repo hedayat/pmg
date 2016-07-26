@@ -1360,8 +1360,11 @@ class MafiaGame {
             $this->punishStartTime = 0;
         }
 
-        if ($nokill)
+        if ($nokill) {
+            if ($this->punishStartTime > 0)
+                $this->say(Config::$lobbyRoom, sprintf(_("You will punish %s in %d seconds if his/her votes don't decrease..."), MafiaGame::boco(2, $who), self::$PUNISH_TIMEOUT + $this->punishStartTime - time()));
             return;
+        }
 
         if ($hasDuplicate) {
             $this->say(Config::$lobbyRoom, MafiaGame::bold(_("There is a tie! please some one fix his/her vote!")));
