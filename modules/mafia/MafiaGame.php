@@ -1184,10 +1184,10 @@ class MafiaGame {
                 && $this->isMafia($I)
                 && isset($this->killVotes[$I])) {
             $this->killVotes[$I] = $you;
-            $this->say(Config::$mafiaRoom, _("$I vote for killing $you"));
+            $this->say(Config::$mafiaRoom, sprintf(_("%s casted his/her vote for killing %s"), $I, $you));
         } elseif ($you == '-') {
             $this->killVotes[$I] = false;
-            $this->say(Config::$mafiaRoom, _("$I remove his/her vote. be fast :)"));
+            $this->say(Config::$mafiaRoom, sprintf(_("%s removed his/her vote. be fast :)"), $I));
         } else {
             $this->say($I, _("Your vote not accepted!"));
         }
@@ -1321,12 +1321,12 @@ class MafiaGame {
         if ($this->isIn($you) && $this->isAlive($you) && $this->isAlive($I)
                 && isset($this->punishVotes[$I])) {
             $this->punishVotes[$I] = $you;
-            $this->say(Config::$lobbyRoom, sprintf(_("%s voted to punish %s"), MafiaGame::boco(2, $I), MafiaGame::boco(2, $you)));
+            $this->say(Config::$lobbyRoom, sprintf(_("%s casted his/her vote for punishing %s"), MafiaGame::boco(2, $I), MafiaGame::boco(2, $you)));
         } elseif ($you == '-') {
             $this->punishVotes[$I] = false;
             $this->say(Config::$lobbyRoom, sprintf(_("%s removed his/her vote!"), MafiaGame::boco(2, $I)));
         } else {
-            $this->say($I, _("Your vote not accepted!"));
+            $this->say($I, _("Your vote is not accepted!"));
         }
 
         $nokill = false;
