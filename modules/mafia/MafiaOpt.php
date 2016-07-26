@@ -11,32 +11,56 @@ class MafiaOpt extends Module {
 
     public static $requiredUserLevel = 7;
 
-    private function showStates() {
-        $server = Server::getInstance();
+    private function showIdentityState() {
         if (MafiaGame::$SHOW_MAFIA_COUNT)
             $server->message(Config::$lobbyRoom, _("Show identity on day punish is ON (show-mafia 1)"));
         else
             $server->message(Config::$lobbyRoom, _("Show identity on day punish is OFF (show-mafia 0)"));
+    }
 
+    private function showWinState() {
         if (MafiaGame::$WON_STATE_NORMAL)
             $server->message(Config::$lobbyRoom, _("Mafia win state is when mafia cnt = ppl cnt (mafia-state 0)"));
         else
             $server->message(Config::$lobbyRoom, _("Mafia win state is when ppl cnt = 0 (mafia-state 1)"));
+    }
 
-
+    private function showDeadTalkState() {
         if (MafiaGame::$DEAD_IS_TALKING)
             $server->message(Config::$lobbyRoom, _("Dead people can talk (dead-talk 1)"));
         else
             $server->message(Config::$lobbyRoom, _("Dead people can not talk (sorry) (dead-talk 0)"));
+    }
 
+    private function showVerboseState() {
         if (MafiaGame::$VERBOSE)
             $server->message(Config::$lobbyRoom, _("Verbose mode in ON (verbose 1)"));
         else
             $server->message(Config::$lobbyRoom, _("Verbose mode in OFF (verbose 0)"));
+    }
 
+    private function showDayTimeout() {
         $server->message(Config::$lobbyRoom, sprintf(_("Day timeout is %d secound (day-time %d)"), MafiaGame::$DAY_TIMEOUT, MafiaGame::$DAY_TIMEOUT));
+    }
+
+    private function showNightTimeout() {
         $server->message(Config::$lobbyRoom, sprintf(_("Night timeout is %d secound (night-time %d)"), MafiaGame::$NIGHT_TIMEOUT, MafiaGame::$NIGHT_TIMEOUT));
+    }
+
+    private function showPunishTimeout() {
         $server->message(Config::$lobbyRoom, sprintf(_("Last defense timeout is %d secound(s) (punish-time %d)"), MafiaGame::$PUNISH_TIMEOUT, MafiaGame::$PUNISH_TIMEOUT));
+    }
+
+    private function showStates() {
+        $server = Server::getInstance();
+
+        showIdentityState();
+        showWinState();
+        showDeadTalkState();
+        showVerboseState();
+        showDayTimeout();
+        showNightTimeout();
+        showPunishTimeout();
     }
 
     public function run() {
@@ -49,29 +73,45 @@ class MafiaOpt extends Module {
         $value = $this->parameters(2, true);
         switch (strtoupper($opt)) {
             case "SHOW-MAFIA":
-                MafiaGame::$SHOW_MAFIA_COUNT = $value;
+                if ($value)
+                    MafiaGame::$SHOW_MAFIA_COUNT = $value;
+                showIdentityState();
                 break;
             case "MAFIA-STATE":
-                MafiaGame::$WON_STATE_NORMAL = $value;
+                if ($value)
+                    MafiaGame::$WON_STATE_NORMAL = $value;
+                showWinState();
                 break;
             case "DEAD-TALK":
-                MafiaGame::$DEAD_IS_TALKING = $value;
+                if ($value)
+                    MafiaGame::$DEAD_IS_TALKING = $value;
+                showDeadTalkState();
                 break;
             case "VERBOSE":
-                MafiaGame::$VERBOSE = $value;
+                if ($value)
+                    MafiaGame::$VERBOSE = $value;
+                showVerboseState();
                 break;
             case "NIGHT-TIME":
-                MafiaGame::$NIGHT_TIMEOUT = intval($value);
-                if (MafiaGame::$NIGHT_TIMEOUT < 100)
-                    MafiaGame::$NIGHT_TIMEOUT = 100;
+                if ($value) {
+                    MafiaGame::$NIGHT_TIMEOUT = intval($value);
+                    if (MafiaGame::$NIGHT_TIMEOUT < 100)
+                        MafiaGame::$NIGHT_TIMEOUT = 100;
+                }
+                showNightTimeout();
                 break;
             case "DAY-TIME":
-                MafiaGame::$DAY_TIMEOUT = intval($value);
-                if (MafiaGame::$DAY_TIMEOUT < 100)
-                    MafiaGame::$DAY_TIMEOUT = 100;
+                if ($value) {
+                    MafiaGame::$DAY_TIMEOUT = intval($value);
+                    if (MafiaGame::$DAY_TIMEOUT < 100)
+                        MafiaGame::$DAY_TIMEOUT = 100;
+                }
+                showDayTimeout();
                 break;
             case "PUNISH-TIME":
-                MafiaGame::$PUNISH_TIMEOUT = intval($value);
+                if ($value)
+                    MafiaGame::$PUNISH_TIMEOUT = intval($value);
+                showPunishTimeout();
                 break;
         }
     }
