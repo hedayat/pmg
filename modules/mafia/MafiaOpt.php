@@ -36,6 +36,7 @@ class MafiaOpt extends Module {
 
         $server->message(Config::$lobbyRoom, sprintf(_("Day timeout is %d secound (day-time %d)"), MafiaGame::$DAY_TIMEOUT, MafiaGame::$DAY_TIMEOUT));
         $server->message(Config::$lobbyRoom, sprintf(_("Night timeout is %d secound (night-time %d)"), MafiaGame::$NIGHT_TIMEOUT, MafiaGame::$NIGHT_TIMEOUT));
+        $server->message(Config::$lobbyRoom, sprintf(_("Last defense timeout is %d secound(s) (punish-time %d)"), MafiaGame::$PUNISH_TIMEOUT, MafiaGame::$PUNISH_TIMEOUT));
     }
 
     public function run() {
@@ -68,6 +69,9 @@ class MafiaOpt extends Module {
                 MafiaGame::$DAY_TIMEOUT = intval($value);
                 if (MafiaGame::$DAY_TIMEOUT < 100)
                     MafiaGame::$DAY_TIMEOUT = 100;
+                break;
+            case "PUNISH-TIME":
+                MafiaGame::$PUNISH_TIMEOUT = intval($value);
                 break;
         }
     }

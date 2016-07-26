@@ -54,7 +54,7 @@ class Mafia implements ModuleConfig {
 Mafia::$help = array(
 		"MAFIA COMMANDS: (" => array(
 			"BASE" => array(
-				"description" => _("Not a command itself!"),
+				"description" => _("Not a command!"),
 				"parameters" => false
 			)
 		),
@@ -97,6 +97,10 @@ Mafia::$help = array(
 			),
 			"day-time" => array(
 				"description" => _("Minimum allowed day time (at least 100)"),
+				"parameters" => _("<seconds>")
+			),
+			"punish-time" => array(
+				"description" => _("Time for last defense before executing someone in a day"),
 				"parameters" => _("<seconds>")
 			)
 		),
@@ -216,7 +220,7 @@ Mafia::$help = array(
 		),
 		" ) " => array(
 			"BASE" => array(
-				"description" => _("Not a command itself!"),
+				"description" => _("Not a command!"),
 				"parameters" => false
 			)
 		),
