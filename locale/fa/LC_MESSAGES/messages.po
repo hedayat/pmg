@@ -4,19 +4,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-24 10:49+0430\n"
+"POT-Creation-Date: 2016-07-26 22:54+0430\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-07-25 03:26-0400\n"
+"PO-Revision-Date: 2016-07-27 12:53-0400\n"
 "Last-Translator: Hedayat Vatankhah <hedayatv@gmail.com>\n"
 "Language-Team: Persian\n"
 "Language: fa\n"
 "X-Generator: Zanata 3.9.1\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
-#: modules/mafia/configs/Mafia.php:57 modules/mafia/configs/Mafia.php:219
-msgid "Not a command itself!"
+#: modules/mafia/configs/Mafia.php:57 modules/mafia/configs/Mafia.php:223
+msgid "Not a command!"
 msgstr ""
 
 #: modules/mafia/configs/Mafia.php:63
@@ -38,12 +38,12 @@ msgstr "نشان دادن هویت در روز"
 #: modules/mafia/configs/Mafia.php:80 modules/mafia/configs/Mafia.php:84
 #: modules/mafia/configs/Mafia.php:88 modules/mafia/configs/Mafia.php:92
 msgid "0|1"
-msgstr ""
+msgstr "0|1"
 
 #: modules/mafia/configs/Mafia.php:83
 msgid ""
 "Set when mafia will win: 0: mafia count = ppl count, 1: mafia count = 0"
-msgstr "برد مافیا: 0 : تعداد مافیا= تعداد شهروند، 1: تعداد مافیا=0"
+msgstr "شرط برد مافیا: 0 : تعداد مافیا= تعداد شهروند، 1: تعداد مافیا=0"
 
 #: modules/mafia/configs/Mafia.php:87
 msgid "Set if dead can talk (1: dead can talk, 0: dead cannot talk)"
@@ -58,6 +58,7 @@ msgid "Minimum allowed night time (at least 100)"
 msgstr "حداقل زمان شب (حداقل ۱۰۰)"
 
 #: modules/mafia/configs/Mafia.php:96 modules/mafia/configs/Mafia.php:100
+#: modules/mafia/configs/Mafia.php:104
 msgid "<seconds>"
 msgstr "<ثانیه>"
 
@@ -65,174 +66,183 @@ msgstr "<ثانیه>"
 msgid "Minimum allowed day time (at least 100)"
 msgstr "حداقل زمان روز (حداقل ۱۰۰)"
 
-#: modules/mafia/configs/Mafia.php:105
+#: modules/mafia/configs/Mafia.php:103
+msgid "Time for last defense before executing someone in a day"
+msgstr ""
+
+#: modules/mafia/configs/Mafia.php:109
 msgid "Set the name of the game"
 msgstr ""
 
-#: modules/mafia/configs/Mafia.php:106
+#: modules/mafia/configs/Mafia.php:110
 msgid "<game_name>"
 msgstr ""
 
-#: modules/mafia/configs/Mafia.php:111
+#: modules/mafia/configs/Mafia.php:115
 msgid "Save current game and optionally set the name of the current game"
 msgstr ""
 
-#: modules/mafia/configs/Mafia.php:112 modules/mafia/configs/Mafia.php:118
+#: modules/mafia/configs/Mafia.php:116 modules/mafia/configs/Mafia.php:122
 msgid "[<game_name>]"
 msgstr ""
 
-#: modules/mafia/configs/Mafia.php:117
+#: modules/mafia/configs/Mafia.php:121
 msgid "Load saved game and optionally set the name of the current game"
 msgstr ""
 
-#: modules/mafia/configs/Mafia.php:123
+#: modules/mafia/configs/Mafia.php:127
 msgid "Start game"
 msgstr "شروع کردن بازی"
 
-#: modules/mafia/configs/Mafia.php:124
+#: modules/mafia/configs/Mafia.php:128
 msgid ""
 "<mafiacount> [<have_dr> [<have_detective> [<have_invulnerable> "
 "[<have_godfather>]]]]"
 msgstr ""
 
-#: modules/mafia/configs/Mafia.php:129
+#: modules/mafia/configs/Mafia.php:133
 msgid "ReStart game to register again"
 msgstr "شروع مجدد"
 
-#: modules/mafia/configs/Mafia.php:135
+#: modules/mafia/configs/Mafia.php:139
 msgid "Ask who you are in the current game"
 msgstr "پرسیدن نقش خود در بازی "
 
-#: modules/mafia/configs/Mafia.php:141
+#: modules/mafia/configs/Mafia.php:145
 msgid "Prints the number of players"
 msgstr "نشان دادن لیست بازیکنان"
 
-#: modules/mafia/configs/Mafia.php:147
+#: modules/mafia/configs/Mafia.php:151
 msgid "List all registered and in game state"
 msgstr "لیست افرادیی که ثبت نام کرده و در بازی هستند"
 
-#: modules/mafia/configs/Mafia.php:153
+#: modules/mafia/configs/Mafia.php:157
 msgid "List current votes"
 msgstr "نشان دادن رای ها"
 
-#: modules/mafia/configs/Mafia.php:159
+#: modules/mafia/configs/Mafia.php:163
 msgid "Day command to punish sombebody, or remove vote (-)"
 msgstr " رای دادن،  یا برداشتن رای در روز (-)"
 
-#: modules/mafia/configs/Mafia.php:160
+#: modules/mafia/configs/Mafia.php:164
 msgid "<nick>|-"
 msgstr "<نام کاربر>|-"
 
-#: modules/mafia/configs/Mafia.php:165
+#: modules/mafia/configs/Mafia.php:169
 msgid "Request timeout"
 msgstr "درخواست تایم اوت"
 
-#: modules/mafia/configs/Mafia.php:171
+#: modules/mafia/configs/Mafia.php:175
 msgid "Mafia command, kill somebody, or nobody (*), or remote vote (-)"
 msgstr "دستور مافیا، کشتن، یا نکشتن(*)، یا برداشتن رای (-)"
 
-#: modules/mafia/configs/Mafia.php:172
+#: modules/mafia/configs/Mafia.php:176
 msgid "<nick>|-|*"
 msgstr ""
 
-#: modules/mafia/configs/Mafia.php:177
+#: modules/mafia/configs/Mafia.php:181
 msgid "Heal in night time"
 msgstr "شفا دادن در شب"
 
-#: modules/mafia/configs/Mafia.php:178 modules/mafia/configs/Mafia.php:184
-#: modules/mafia/configs/Mafia.php:214
+#: modules/mafia/configs/Mafia.php:182 modules/mafia/configs/Mafia.php:188
+#: modules/mafia/configs/Mafia.php:218
 msgid "<nick>"
 msgstr "<نام کاربری>"
 
-#: modules/mafia/configs/Mafia.php:183
+#: modules/mafia/configs/Mafia.php:187
 msgid "Detector command in night time to ask if someone is mafia"
 msgstr "دستور کاراگاه در شب برای یافتن مافیا"
 
-#: modules/mafia/configs/Mafia.php:189
-msgid "A wish by the last one dead at night"
-msgstr " آروزی فرد کشته شده در شب"
+#: modules/mafia/configs/Mafia.php:193
+msgid "A wish by the last one punished during a day"
+msgstr " آروزی آخرین فرد کشته شده در روز"
 
-#: modules/mafia/configs/Mafia.php:190
+#: modules/mafia/configs/Mafia.php:194
 msgid "<wish>"
 msgstr "<آرزو>"
 
-#: modules/mafia/configs/Mafia.php:195
+#: modules/mafia/configs/Mafia.php:199
 msgid "Say you think someone is mafia"
 msgstr " حدس شما درمورد هویت مافیا"
 
-#: modules/mafia/configs/Mafia.php:196 modules/mafia/configs/Mafia.php:202
+#: modules/mafia/configs/Mafia.php:200 modules/mafia/configs/Mafia.php:206
 msgid "<nick> [<reason>]"
 msgstr "<نام کاربر>  [<علت>]"
 
-#: modules/mafia/configs/Mafia.php:201
+#: modules/mafia/configs/Mafia.php:205
 msgid "Slap somebody!"
 msgstr "سیلی زدن!"
 
-#: modules/mafia/configs/Mafia.php:207
+#: modules/mafia/configs/Mafia.php:211
 msgid "Ask for voice, if you should have it but don't"
 msgstr ""
 
-#: modules/mafia/configs/Mafia.php:213
+#: modules/mafia/configs/Mafia.php:217
 msgid "Remove a user which has left channel from the game"
 msgstr "بیرون کردن کاربری که بازی را ترک کرده"
 
-#: modules/mafia/configs/Mafia.php:225
+#: modules/mafia/configs/Mafia.php:229
 msgid "Kick a user out of channel"
 msgstr "بیرون کردن کاربر"
 
-#: modules/mafia/configs/Mafia.php:231
+#: modules/mafia/configs/Mafia.php:235
 msgid "Remove a nick from game"
 msgstr "حذف یک کاربر از بازی"
 
-#: modules/mafia/configs/Mafia.php:237
+#: modules/mafia/configs/Mafia.php:241
 msgid "Send raw message "
 msgstr "ارسال پیام خام"
 
-#: modules/mafia/configs/Mafia.php:238
+#: modules/mafia/configs/Mafia.php:242
 msgid "<rawmessage>"
 msgstr "<پیام خام>"
 
-#: modules/mafia/MafiaOpt.php:17
+#: modules/mafia/MafiaOpt.php:16
 msgid "Show identity on day punish is ON (show-mafia 1)"
-msgstr "فعال سازی مشخص کردن هویت در روز (نشان دادن مافیا 1)"
+msgstr "هویت کشته شده در روز نشان داده می‌شود (show-mafia 1)"
 
-#: modules/mafia/MafiaOpt.php:19
+#: modules/mafia/MafiaOpt.php:18
 msgid "Show identity on day punish is OFF (show-mafia 0)"
-msgstr ""
+msgstr "هویت کشته شده در روز نشان داده نمی‌شود (show-mafia 0)"
 
-#: modules/mafia/MafiaOpt.php:22
+#: modules/mafia/MafiaOpt.php:23
 msgid "Mafia win state is when mafia cnt = ppl cnt (mafia-state 0)"
-msgstr "برد مافیا زمانیست که تعداد مافیا =تعداد شهروندها (وضعیت مافیا 0)"
+msgstr "برد مافیا زمانیست که تعداد مافیا =تعداد شهروندها (mafia-state 0)"
 
-#: modules/mafia/MafiaOpt.php:24
+#: modules/mafia/MafiaOpt.php:25
 msgid "Mafia win state is when ppl cnt = 0 (mafia-state 1)"
-msgstr "برد مافیا زمانیست که تعداد شهروندان = 0 (تعداد مافیا)"
-
-#: modules/mafia/MafiaOpt.php:28
-msgid "Dead people can talk (dead-talk 1)"
-msgstr "اجازه صحبت به مرده ها(صحبت کردن مرده ها 1)"
+msgstr "برد مافیا زمانیست که تعداد شهروندان = 0 (mafia-state 1)"
 
 #: modules/mafia/MafiaOpt.php:30
-msgid "Dead people can not talk (sorry) (dead-talk 0)"
-msgstr "مرده ها اجازه صحبت ندارند(صحبت کردن مرده ها 0)"
+msgid "Dead people can talk (dead-talk 1)"
+msgstr "مرده ها اجازه صحبت دارند (dead-talk 1)"
 
-#: modules/mafia/MafiaOpt.php:33
+#: modules/mafia/MafiaOpt.php:32
+msgid "Dead people can not talk (sorry) (dead-talk 0)"
+msgstr "مرده ها اجازه صحبت ندارند (dead-talk 0)"
+
+#: modules/mafia/MafiaOpt.php:37
 msgid "Verbose mode in ON (verbose 1)"
 msgstr ""
 
-#: modules/mafia/MafiaOpt.php:35
+#: modules/mafia/MafiaOpt.php:39
 msgid "Verbose mode in OFF (verbose 0)"
 msgstr ""
 
-#: modules/mafia/MafiaOpt.php:37
+#: modules/mafia/MafiaOpt.php:43
 #, php-format
 msgid "Day timeout is %d secound (day-time %d)"
 msgstr "تایم اوت در روز %d ثانیه است (day-time %d)"
 
-#: modules/mafia/MafiaOpt.php:38
+#: modules/mafia/MafiaOpt.php:47
 #, php-format
 msgid "Night timeout is %d secound (night-time %d)"
 msgstr "تایم اوت در شب %d ثانیه است (night-time %d)"
+
+#: modules/mafia/MafiaOpt.php:51
+#, php-format
+msgid "Last defense timeout is %d secound(s) (punish-time %d)"
+msgstr ""
 
 #: modules/mafia/MafiaHelp.php:16
 msgid "Day-only Commands:"
@@ -246,7 +256,7 @@ msgstr "!punish <نام کاربر>:‎ ‏رأی دادن به ‏<نام کا�
 msgid "!punish -  : To remove your vote"
 msgstr "!punish -: برداشتن رای"
 
-#: modules/mafia/MafiaHelp.php:19 modules/mafia/MafiaGame.php:1114
+#: modules/mafia/MafiaHelp.php:19 modules/mafia/MafiaGame.php:1119
 msgid "!vote  : To see other people votes"
 msgstr "!vote: مشاهده رای‌ها"
 
@@ -300,7 +310,7 @@ msgstr "!kill *: نکشتن"
 msgid "!kill -  : To remove your vote"
 msgstr "!kill -: برداشتن رای"
 
-#: modules/mafia/MafiaHelp.php:37 modules/mafia/MafiaGame.php:1093
+#: modules/mafia/MafiaHelp.php:37 modules/mafia/MafiaGame.php:1098
 msgid "!vote  : To see other mafias (and their votes)"
 msgstr "!vote: شناسایی دیگر مافیاها(و دیدن رای هایشان)"
 
@@ -308,8 +318,8 @@ msgstr "!vote: شناسایی دیگر مافیاها(و دیدن رای های�
 msgid "Global Commands:"
 msgstr "فرمان‌های کلی:"
 
-#: modules/mafia/MafiaHelp.php:41 modules/mafia/MafiaGame.php:1094
-#: modules/mafia/MafiaGame.php:1115
+#: modules/mafia/MafiaHelp.php:41 modules/mafia/MafiaGame.php:1099
+#: modules/mafia/MafiaGame.php:1120
 msgid "!list  : To see list of all players"
 msgstr "!list: مشاهده لیست بازیکنان"
 
@@ -321,7 +331,7 @@ msgstr "!count: مشاهده تعداد بازیکنان"
 msgid "!whoami: To see who you are!"
 msgstr "!whoami: مشاهده نقش خود "
 
-#: modules/mafia/MafiaHelp.php:44 modules/mafia/MafiaGame.php:1116
+#: modules/mafia/MafiaHelp.php:44 modules/mafia/MafiaGame.php:1121
 msgid ""
 "!voice : If you must have voice and you have no voice, (mostly reconnect "
 "problems)"
@@ -329,11 +339,11 @@ msgstr ""
 
 #: modules/mafia/MafiaHelp.php:47
 msgid "Dead Commands:"
-msgstr "فرمان های مرده ها:"
+msgstr "فرمان های مرده‌ها:"
 
 #: modules/mafia/MafiaHelp.php:48
-msgid "!wish <wish> : To say your last wish after being killed at night!"
-msgstr "!wish <wish> :  آرزوی شما در شب بعد از کشته شدن!"
+msgid "!wish <wish> : To say your last wish after being punished!"
+msgstr ""
 
 #: modules/mafia/MafiaHelp.php:49
 msgid "!slap <nick> [<reason>] : To slap somebody!"
@@ -359,11 +369,7 @@ msgstr "در بازی نیستید :("
 
 #: modules/mafia/MafiaTimeout.php:19
 msgid "Checking time out. please wait! request from : "
-msgstr "لطفا صبر کنید!درخواست تایم اوت از جانب:"
-
-#: modules/mafia/MafiaWish.php:20
-msgid "A wish in night? you are crazy!"
-msgstr "آرزو کردن در شب ممکن نیست!"
+msgstr "لطفا صبر کنید! درخواست تایم اوت از جانب:"
 
 #: modules/mafia/MafiaKill.php:19
 msgid "Not killing time!"
@@ -385,7 +391,7 @@ msgstr ""
 
 #: modules/mafia/MafiaMafia.php:48
 msgid " is Mafia "
-msgstr "مافیاست"
+msgstr " مافیاست"
 
 #: modules/mafia/MafiaSlap.php:34
 msgid ""
@@ -393,421 +399,456 @@ msgid ""
 "use your own hand for slap!!!"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:320
+#: modules/mafia/MafiaGame.php:325
 msgid "You are not in game, sorry"
 msgstr "متاسفم، در بازی نیستید"
 
-#: modules/mafia/MafiaGame.php:325
+#: modules/mafia/MafiaGame.php:330
 msgid "Its not a good time to ask this."
 msgstr "زمان مناسبی برای پرسش این سوال نیست."
 
-#: modules/mafia/MafiaGame.php:330
+#: modules/mafia/MafiaGame.php:335
 msgid "You are dead! rest in peace :D (Or I'll kick you!)"
-msgstr "شما کشته شدید! روحتان قرین آرامش:D"
+msgstr "شما کشته شدید! روحتان قرین آرامش D:"
 
-#: modules/mafia/MafiaGame.php:465
+#: modules/mafia/MafiaGame.php:470
 msgid "The game is already on, sorry!"
 msgstr "بازی قبلا شروع شده، متاسفم!"
 
-#: modules/mafia/MafiaGame.php:470
+#: modules/mafia/MafiaGame.php:475
 msgid "You are already in game, for exit use command !leave"
 msgstr " در بازی هستید، جهت خروج از دستور !leave استفاده کنید"
 
-#: modules/mafia/MafiaGame.php:476
+#: modules/mafia/MafiaGame.php:481
 #, php-format
 msgid "Welcome to game %s, wait for start :D you can read the manual at %s"
 msgstr ""
 "به بازی خوش آمدی %s عزیز، منتظر شروع بازی باشید :D راهنمای بازی را در %s "
 "می‌توانید بخوانید"
 
-#: modules/mafia/MafiaGame.php:477
+#: modules/mafia/MafiaGame.php:482
 #, php-format
 msgid "%s joined to the game :), total players: %d"
 msgstr "‏%s ثبت نام کرد، تعداد بازیکنان: %d"
 
-#: modules/mafia/MafiaGame.php:526
+#: modules/mafia/MafiaGame.php:531
 msgid " Changed his/her nick to "
-msgstr "تغییر نام کاربری"
+msgstr " نام کاربری خود را تغییر داد به "
 
-#: modules/mafia/MafiaGame.php:551
+#: modules/mafia/MafiaGame.php:556
 msgid "You are dead, so its ok to leave. just say goodbye to other people ;D"
-msgstr "کشته شدید، با شهروندها خداحافظی کنید:("
+msgstr ""
+"شما مرده‌اید، پس می‌توانید بازی را ترک کنید. فقط با دیگران خداحافظی کنید D;"
 
-#: modules/mafia/MafiaGame.php:591
+#: modules/mafia/MafiaGame.php:596
 msgid "See you soon :)"
 msgstr "بزودی میبینمت :)"
 
-#: modules/mafia/MafiaGame.php:647 modules/mafia/MafiaGame.php:1541
+#: modules/mafia/MafiaGame.php:652 modules/mafia/MafiaGame.php:1577
 msgid "You are the Godfather!!"
 msgstr " پدرخوانده هستید!!"
 
-#: modules/mafia/MafiaGame.php:649 modules/mafia/MafiaGame.php:1543
+#: modules/mafia/MafiaGame.php:654 modules/mafia/MafiaGame.php:1579
 msgid "You are mafia!!"
 msgstr "مافیا هستید!!"
 
-#: modules/mafia/MafiaGame.php:650 modules/mafia/MafiaGame.php:1544
+#: modules/mafia/MafiaGame.php:655 modules/mafia/MafiaGame.php:1580
 msgid "Mafia crew: "
 msgstr "تیم مافیا: "
 
-#: modules/mafia/MafiaGame.php:652 modules/mafia/MafiaGame.php:1546
+#: modules/mafia/MafiaGame.php:657 modules/mafia/MafiaGame.php:1582
 #, php-format
 msgid "You are mafia :D Please join %s and %s"
 msgstr "شما مافیا هستید :D لطفا به %s و %s ملحق شوید"
 
-#: modules/mafia/MafiaGame.php:660 modules/mafia/MafiaGame.php:1549
+#: modules/mafia/MafiaGame.php:665 modules/mafia/MafiaGame.php:1585
 msgid "Use this command :"
 msgstr "از این دستور استفاده کنید:"
 
-#: modules/mafia/MafiaGame.php:662 modules/mafia/MafiaGame.php:1551
+#: modules/mafia/MafiaGame.php:667 modules/mafia/MafiaGame.php:1587
 msgid "You are <NOT> mafia!"
 msgstr "شهروند هستید!"
 
-#: modules/mafia/MafiaGame.php:664 modules/mafia/MafiaGame.php:1553
+#: modules/mafia/MafiaGame.php:669 modules/mafia/MafiaGame.php:1589
 #, php-format
 msgid ""
 "The game begin, go to sleep! (Join %s room please and stay away from %s its "
 "dangerous!)"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:673 modules/mafia/MafiaGame.php:1560
+#: modules/mafia/MafiaGame.php:678 modules/mafia/MafiaGame.php:1596
 #, php-format
 msgid "You are doctor!, use %s command in PRIVATE to heal one ppl in NIGHT!"
-msgstr "دکتر هستید!از فرمان %s برای شفا دادن استفاده کنید!"
+msgstr "دکتر هستید! از فرمان %s برای شفا دادن استفاده کنید!"
 
-#: modules/mafia/MafiaGame.php:681 modules/mafia/MafiaGame.php:1565
+#: modules/mafia/MafiaGame.php:686 modules/mafia/MafiaGame.php:1601
 #, php-format
 msgid ""
 "You are detective!, use %s command in PRIVATE to identify one ppl each "
 "NIGHT!"
-msgstr "کاراگاه هستید!از فرمان %s جهت استعلام گرفتن استفاده کنید!"
+msgstr "کاراگاه هستید! از فرمان %s جهت استعلام گرفتن استفاده کنید!"
 
-#: modules/mafia/MafiaGame.php:688 modules/mafia/MafiaGame.php:1569
+#: modules/mafia/MafiaGame.php:693 modules/mafia/MafiaGame.php:1605
 msgid "You are Invulnerable! you die only with punish command!"
 msgstr "رویین تن هستید! فقط در رای گیری روز کشته میشوید!"
 
-#: modules/mafia/MafiaGame.php:693
+#: modules/mafia/MafiaGame.php:698
 msgid "The game is on! gg and have fun!"
 msgstr "بازی شروع شد!"
 
-#: modules/mafia/MafiaGame.php:726
+#: modules/mafia/MafiaGame.php:731
 msgid "You need to set game name with !name command."
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:730
+#: modules/mafia/MafiaGame.php:735
 msgid "At least one mafia must exist!"
-msgstr "حداقل یک مافیا باید وجود داشته باشد"
+msgstr "حداقل یک مافیا باید وجود داشته باشد!"
 
-#: modules/mafia/MafiaGame.php:747
+#: modules/mafia/MafiaGame.php:752
 #, php-format
 msgid "You need at least %d player but you are %d"
 msgstr "حداقل به %d بازیکن نیاز دارید اما شما %d نفر هستید"
 
-#: modules/mafia/MafiaGame.php:751 modules/mafia/MafiaGame.php:752
-#: modules/mafia/MafiaGame.php:753 modules/mafia/MafiaGame.php:754
+#: modules/mafia/MafiaGame.php:756 modules/mafia/MafiaGame.php:757
+#: modules/mafia/MafiaGame.php:758 modules/mafia/MafiaGame.php:759
 msgid "One"
 msgstr "یک"
 
-#: modules/mafia/MafiaGame.php:751 modules/mafia/MafiaGame.php:752
-#: modules/mafia/MafiaGame.php:753 modules/mafia/MafiaGame.php:754
+#: modules/mafia/MafiaGame.php:756 modules/mafia/MafiaGame.php:757
+#: modules/mafia/MafiaGame.php:758 modules/mafia/MafiaGame.php:759
 msgid "No"
-msgstr "خیر"
+msgstr "بدون"
 
-#: modules/mafia/MafiaGame.php:778
+#: modules/mafia/MafiaGame.php:760
+#, php-format
+msgid ""
+"Starting game with %d Mafia(s), %s Dr, %s Detective, %s Invulnerable, and %s "
+"Godfather."
+msgstr ""
+"شروع بازی با %d مافیا، %s دکتر، %s کاراگاه، %s روئین‌تن، و %s پدرخوانده."
+
+#: modules/mafia/MafiaGame.php:783
 msgid "Selecting roles..."
 msgstr "انتخاب نقش ها..."
 
-#: modules/mafia/MafiaGame.php:785
+#: modules/mafia/MafiaGame.php:790
 #, php-format
 msgid "DEBUG : Choose %d dr from %d player"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:794
+#: modules/mafia/MafiaGame.php:799
 #, php-format
 msgid "DEBUG : Choose %d detective from %d player"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:802
+#: modules/mafia/MafiaGame.php:807
 #, php-format
 msgid "DEBUG : Choose %d inv from %d player"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:810
+#: modules/mafia/MafiaGame.php:815
 #, php-format
 msgid "DEBUG : Choose %d godfather from %d player"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:817
+#: modules/mafia/MafiaGame.php:822
 #, php-format
 msgid "DEBUG : Choose %d mafia from %d player"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:920
+#: modules/mafia/MafiaGame.php:925
 msgid "Get user list , player count : "
 msgstr "فهرست بازیکنان، تعداد کل: "
 
-#: modules/mafia/MafiaGame.php:926
+#: modules/mafia/MafiaGame.php:931
 msgid "ALIVE"
 msgstr "زنده"
 
-#: modules/mafia/MafiaGame.php:929
+#: modules/mafia/MafiaGame.php:934
 msgid "DEAD"
 msgstr "مرده"
 
-#: modules/mafia/MafiaGame.php:931
+#: modules/mafia/MafiaGame.php:936
 #, php-format
 msgid "%s is %s!"
 msgstr "کاربر %s %s است!"
 
-#: modules/mafia/MafiaGame.php:940
+#: modules/mafia/MafiaGame.php:945
 msgid " is in the game."
-msgstr "ثبت‌نام کرده."
+msgstr " ثبت‌نام کرده."
 
-#: modules/mafia/MafiaGame.php:1037 modules/mafia/MafiaGame.php:1038
+#: modules/mafia/MafiaGame.php:1042 modules/mafia/MafiaGame.php:1043
 msgid "Please leave "
 msgstr "لطفا بازی را ترک کنید"
 
-#: modules/mafia/MafiaGame.php:1089
+#: modules/mafia/MafiaGame.php:1094
 #, php-format
 msgid "Your turn to kill!! use %s command to vote"
 msgstr "با استفاده از فرمان %s یک نفر را بکشید"
 
-#: modules/mafia/MafiaGame.php:1091
+#: modules/mafia/MafiaGame.php:1096
 msgid "!kill *  : for kill nobody"
 msgstr "!kill *: نکشتن"
 
-#: modules/mafia/MafiaGame.php:1092
+#: modules/mafia/MafiaGame.php:1097
 msgid "!kill -  : for remove your vote"
 msgstr "!kill -: برداشتن رای"
 
-#: modules/mafia/MafiaGame.php:1095
+#: modules/mafia/MafiaGame.php:1100
 msgid "!timeout  : To end the night after "
 msgstr "!timeout: خاتمه دادن به شب بعد از"
 
-#: modules/mafia/MafiaGame.php:1097
+#: modules/mafia/MafiaGame.php:1102
 msgid "Good night ppl ;)"
 msgstr "شب بخیر شهروندان ;)"
 
-#: modules/mafia/MafiaGame.php:1104
+#: modules/mafia/MafiaGame.php:1109
 msgid "Your turn to hide!!"
 msgstr "پنهان شوید!!"
 
-#: modules/mafia/MafiaGame.php:1107
+#: modules/mafia/MafiaGame.php:1112
 #, php-format
 msgid ""
 "Hi ppl, there is a dead! lets find the killer and punish him/her. use %s "
 "command"
 msgstr "دیشب یک نفر کشته شد! مافیا را پیدا کنید و با فرمان %s به او رای دهید"
 
-#: modules/mafia/MafiaGame.php:1110
+#: modules/mafia/MafiaGame.php:1115
 #, php-format
 msgid ""
 "Hi ppl, No one dead. peeowh!! either its a doctor's job or mafia trick :D, "
 "but who care? use %s command"
 msgstr "دیشب کسی کشته نشد! از فرمان %s جهت رای دادن استفاده کنید"
 
-#: modules/mafia/MafiaGame.php:1113
+#: modules/mafia/MafiaGame.php:1118
 msgid "!punish -  : for remove your vote"
 msgstr "!punish -: رای خود را برداشت"
 
-#: modules/mafia/MafiaGame.php:1117
+#: modules/mafia/MafiaGame.php:1122
 msgid "!timeout  : To end the day after "
 msgstr "!timeout : خاتمه دادن به روز بعد از"
 
-#: modules/mafia/MafiaGame.php:1117
+#: modules/mafia/MafiaGame.php:1122
 #, php-format
 msgid " and 60% of player cast their vote."
-msgstr "و ۶۰٪ بازیکنان رای دادند."
+msgstr " و ۶۰٪ بازیکنان رای دادند."
 
-#: modules/mafia/MafiaGame.php:1133
+#: modules/mafia/MafiaGame.php:1138
 #, php-format
 msgid "There is %d player, %d dead and %d mafia player"
-msgstr "تعداد بازیکنان= %d ، تعداد مرده ها= %d ، تعداد مافیا = %d"
+msgstr "تعداد بازیکنان = %d، تعداد مرده ها =  %d، و تعداد مافیا = %d"
 
-#: modules/mafia/MafiaGame.php:1135
+#: modules/mafia/MafiaGame.php:1140
 #, php-format
 msgid "There is %d player, %d dead"
-msgstr "تعداد مافیا= %d ، تعداد مرده ها = %d"
+msgstr "%d بازیکن و %d مرده داریم"
 
-#: modules/mafia/MafiaGame.php:1139 modules/mafia/MafiaGame.php:1146
+#: modules/mafia/MafiaGame.php:1144 modules/mafia/MafiaGame.php:1151
 msgid "Mafia won!"
 msgstr "مافیا برنده شد!"
 
-#: modules/mafia/MafiaGame.php:1154
+#: modules/mafia/MafiaGame.php:1159
 msgid "Ppl won!"
 msgstr "شهروندها برنده شدند!"
 
-#: modules/mafia/MafiaGame.php:1173
+#: modules/mafia/MafiaGame.php:1178
 msgid "Wow! you are mad! its day time!"
 msgstr "روز است!"
 
-#: modules/mafia/MafiaGame.php:1187 modules/mafia/MafiaGame.php:1328
+#: modules/mafia/MafiaGame.php:1187
+#, php-format
+msgid "%s casted his/her vote for killing %s"
+msgstr "‏%s به کشتن %s رأی داد"
+
+#: modules/mafia/MafiaGame.php:1190
+#, php-format
+msgid "%s removed his/her vote. be fast :)"
+msgstr "‏%s رأی خود را برداشت. زود باشید :)"
+
+#: modules/mafia/MafiaGame.php:1192
 msgid "Your vote not accepted!"
 msgstr "رای شما پذیرفته نشد!"
 
-#: modules/mafia/MafiaGame.php:1201 modules/mafia/MafiaGame.php:1224
+#: modules/mafia/MafiaGame.php:1206 modules/mafia/MafiaGame.php:1229
 msgid "Waiting for dr/detective/mafias to vote !"
 msgstr "لطفا منتظر رای مافیا، کاراگاه و دکتر بمانید!"
 
-#: modules/mafia/MafiaGame.php:1219 modules/mafia/MafiaGame.php:1352
+#: modules/mafia/MafiaGame.php:1224 modules/mafia/MafiaGame.php:1370
 msgid "There is a tie! please some one fix his/her vote!"
 msgstr "رای ها برابر شدند! رای خود را تغییر دهید!"
 
-#: modules/mafia/MafiaGame.php:1233 modules/mafia/MafiaGame.php:1475
+#: modules/mafia/MafiaGame.php:1238 modules/mafia/MafiaGame.php:1511
 #, php-format
 msgid "You kill %s"
 msgstr "شما %s را کشتید"
 
-#: modules/mafia/MafiaGame.php:1234 modules/mafia/MafiaGame.php:1476
+#: modules/mafia/MafiaGame.php:1239 modules/mafia/MafiaGame.php:1512
 #, php-format
 msgid "ALERT!!! They killed %s, lets find the killer!"
 msgstr "دیشب %s کشته شد!"
 
-#: modules/mafia/MafiaGame.php:1236
-#, php-format
-msgid ""
-"You are dead! please respect others and be quiet. Thanks. you can use %s "
-"command ONLY ONCE!! to make your last wish."
-msgstr ""
-"شما کشته شدید! لطفا سکوت کنید. از فرمان %s جهت گفتن آخرین حرفتان در بازی "
-"استفاده کنید."
-
-#: modules/mafia/MafiaGame.php:1241 modules/mafia/MafiaGame.php:1481
-msgid "Nobody killed :D"
-msgstr "کسی کشته نشد:)"
-
-#: modules/mafia/MafiaGame.php:1242 modules/mafia/MafiaGame.php:1482
-msgid "No body kiled last night! WOOOW! but lets hunt some of them!"
-msgstr "دیشب کسی کشته نشد :)"
-
-#: modules/mafia/MafiaGame.php:1255
-msgid "You are not the last dead people!"
-msgstr "شما آخرین فرد کشته شده نیستید!"
-
-#: modules/mafia/MafiaGame.php:1257
-msgid "You are not dead! you are a cheat!"
-msgstr "نمردید! دارید تقلب می‌کنید!"
-
-#: modules/mafia/MafiaGame.php:1263
-msgid "You already said : "
-msgstr "قبلا گفتید: "
-
-#: modules/mafia/MafiaGame.php:1283
-msgid "you can not heal, just in night."
-msgstr "شما فقط در شب می توانید شفا دهید."
-
-#: modules/mafia/MafiaGame.php:1294
-msgid "Thinks you are selfish!"
-msgstr "فکر می‌کند خودخواه هستید!"
-
-#: modules/mafia/MafiaGame.php:1298
-msgid "You heal no body! heal some one!"
-msgstr "کسی را شفا ندادید! یک نفر را شفا دهید!"
-
-#: modules/mafia/MafiaGame.php:1316
-msgid "Wow! you are mad! its night!"
-msgstr "بله؟! الان شب است!"
-
-#: modules/mafia/MafiaGame.php:1323
-msgid " vote for punishing "
-msgstr " رای داد به "
-
-#: modules/mafia/MafiaGame.php:1326
-msgid " Remove his/her vote!"
-msgstr "رای خود را برداشت!"
-
-#: modules/mafia/MafiaGame.php:1357
-msgid "Your turn to kill!"
-msgstr "نوبت شماست، یک نفر را بکشید!"
-
-#: modules/mafia/MafiaGame.php:1358
-msgid "You punish "
-msgstr "رای دادید به "
-
-#: modules/mafia/MafiaGame.php:1359 modules/mafia/MafiaGame.php:1477
+#: modules/mafia/MafiaGame.php:1240 modules/mafia/MafiaGame.php:1513
 msgid "You are dead! please respect others and be quiet. Thanks."
 msgstr "شما کشته شدید! لطفا به احترام دیگران سکوت کنید. با تشکر."
 
-#: modules/mafia/MafiaGame.php:1376
+#: modules/mafia/MafiaGame.php:1244 modules/mafia/MafiaGame.php:1517
+msgid "Nobody killed :D"
+msgstr "کسی کشته نشد :)"
+
+#: modules/mafia/MafiaGame.php:1245 modules/mafia/MafiaGame.php:1518
+msgid "No body kiled last night! WOOOW! but lets hunt some of them!"
+msgstr "دیشب کسی کشته نشد :)"
+
+#: modules/mafia/MafiaGame.php:1256
+msgid "You are not the last dead people!"
+msgstr "شما آخرین فرد کشته شده در روز نیستید!"
+
+#: modules/mafia/MafiaGame.php:1258
+msgid "You are not dead! you are a cheat!"
+msgstr "نمردید! دارید تقلب می‌کنید!"
+
+#: modules/mafia/MafiaGame.php:1264
+msgid "You already said : "
+msgstr "قبلا گفتید: "
+
+#: modules/mafia/MafiaGame.php:1284
+msgid "you can not heal, just in night."
+msgstr "شما فقط در شب می توانید شفا دهید."
+
+#: modules/mafia/MafiaGame.php:1295
+msgid "Thinks you are selfish!"
+msgstr "فکر می‌کند خودخواه هستید!"
+
+#: modules/mafia/MafiaGame.php:1299
+msgid "You heal no body! heal some one!"
+msgstr "کسی را شفا ندادید! یک نفر را شفا دهید!"
+
+#: modules/mafia/MafiaGame.php:1317
+msgid "Wow! you are mad! its night!"
+msgstr "بله؟! الان شب است!"
+
+#: modules/mafia/MafiaGame.php:1324
+#, php-format
+msgid "%s casted his/her vote for punishing %s"
+msgstr "‏%s به %s رأی داد"
+
+#: modules/mafia/MafiaGame.php:1327
+#, php-format
+msgid "%s removed his/her vote!"
+msgstr "‏%s رأی خود را برداشت!"
+
+#: modules/mafia/MafiaGame.php:1329
+msgid "Your vote is not accepted!"
+msgstr "رای شما پذیرفته نشد!"
+
+#: modules/mafia/MafiaGame.php:1359
+msgid "Punishing canceled!"
+msgstr "اعدام لغو شد!"
+
+#: modules/mafia/MafiaGame.php:1365 modules/mafia/MafiaGame.php:1378
+#: modules/mafia/MafiaGame.php:1383
+#, php-format
+msgid "You will punish %s in %d seconds if his/her votes don't decrease..."
+msgstr "در صورت کم نشدن رأی‌های %s، در %d ثانیه او را اعدام می‌کنید...."
+
+#: modules/mafia/MafiaGame.php:1388
+msgid "Your turn to kill!"
+msgstr "نوبت شماست، یک نفر را بکشید!"
+
+#: modules/mafia/MafiaGame.php:1389
+msgid "You punish "
+msgstr "رای دادید به "
+
+#: modules/mafia/MafiaGame.php:1391
+#, php-format
+msgid ""
+"You are dead! please respect others and be quiet. Thanks. You can use %s "
+"command ONLY ONCE to make your last wish."
+msgstr ""
+"شما کشته شدید! لطفا با احترام به دیگران سکوت کنید، با تشکر. می‌توانید با "
+"فرمان %s آخرین حرفتان در بازی را بگویید."
+
+#: modules/mafia/MafiaGame.php:1412
 msgid "Stay hidden! they kill you if they find you!"
 msgstr "مخفی شوید!"
 
-#: modules/mafia/MafiaGame.php:1381
+#: modules/mafia/MafiaGame.php:1417
 msgid "Do not over-do :) you already know too much!"
-msgstr ""
+msgstr "زیادی نپرس :) همین الان هم بیش‌از اندازه می‌دانی!"
 
-#: modules/mafia/MafiaGame.php:1390
+#: modules/mafia/MafiaGame.php:1426
 msgid "Mafia"
 msgstr "مافیا"
 
-#: modules/mafia/MafiaGame.php:1391
+#: modules/mafia/MafiaGame.php:1427
 msgid "Citizen"
 msgstr "شهروند"
 
-#: modules/mafia/MafiaGame.php:1392
+#: modules/mafia/MafiaGame.php:1428
 #, php-format
 msgid "%s is %s"
 msgstr "‏%s %s است!"
 
-#: modules/mafia/MafiaGame.php:1409
+#: modules/mafia/MafiaGame.php:1445
 msgid "You are not in game!"
 msgstr "در بازی نیستید!"
 
-#: modules/mafia/MafiaGame.php:1435
+#: modules/mafia/MafiaGame.php:1471
 msgid "Kiding me, right? They kill me if I tell you!"
-msgstr ""
+msgstr "شوخی می‌کنی، نه؟ اگر جواب بدهم من را می‌کشند!"
 
-#: modules/mafia/MafiaGame.php:1448
+#: modules/mafia/MafiaGame.php:1484
 msgid "Sorry, time out :D"
 msgstr "وقت تمام شد :("
 
-#: modules/mafia/MafiaGame.php:1449
+#: modules/mafia/MafiaGame.php:1485
 msgid "Day time!"
 msgstr "روز است!"
 
-#: modules/mafia/MafiaGame.php:1490
+#: modules/mafia/MafiaGame.php:1526
 #, php-format
 msgid "%d secound remain from night!"
 msgstr "از شب %d ثانیه باقی مانده است!"
 
-#: modules/mafia/MafiaGame.php:1502
+#: modules/mafia/MafiaGame.php:1538
 #, php-format
 msgid "More than 60% of players cast their votes and day time out is ended. "
 msgstr "بیش از ۶۰٪ بازیکنان رأی داده‌اند و زمان روز به پایان رسید."
 
-#: modules/mafia/MafiaGame.php:1503
+#: modules/mafia/MafiaGame.php:1539
 msgid "DOOM!"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1503
+#: modules/mafia/MafiaGame.php:1539
 msgid " has come to this world :D"
-msgstr "وارد می‌شود! D:"
+msgstr "وارد می‌شود D:"
 
-#: modules/mafia/MafiaGame.php:1504
+#: modules/mafia/MafiaGame.php:1540
 msgid "If there is a tie, cast your vote in private."
-msgstr "رای ها برابر شده است، دوباره رای دهید."
+msgstr "اگر رای‌ها برابر شده، دوباره رأی بدهید."
 
-#: modules/mafia/MafiaGame.php:1514
+#: modules/mafia/MafiaGame.php:1550
 #, php-format
 msgid "%d secound remain from day, %d player of %d cast their vote!"
-msgstr "از روز %d ثانیه باقی مانده است، از بین %d بازیکن %d نفر رای داده اند!"
+msgstr "از روز %d ثانیه باقی مانده است، و %d بازیکن از %d نفر رای داده اند!"
 
-#: modules/mafia/MafiaGame.php:1529
+#: modules/mafia/MafiaGame.php:1565
 msgid "You are nobody :D"
 msgstr "هیچ نقشی ندارید D:"
 
-#: modules/mafia/MafiaGame.php:1584
+#: modules/mafia/MafiaGame.php:1620
 msgid "Save game : "
-msgstr "ذخیره بازی:"
+msgstr "ذخیره بازی: "
 
-#: modules/mafia/MafiaGame.php:1586
+#: modules/mafia/MafiaGame.php:1622
 msgid "Save game failed "
 msgstr "ذخیره بازی امکان پذیر نیست!"
 
-#: modules/mafia/MafiaGame.php:1598 modules/mafia/MafiaGame.php:1600
+#: modules/mafia/MafiaGame.php:1634 modules/mafia/MafiaGame.php:1636
 msgid "Load game : "
-msgstr "بارگزاری بازی:"
+msgstr "بارگزاری بازی: "
 
-#: modules/mafia/MafiaGame.php:1603
+#: modules/mafia/MafiaGame.php:1639
 msgid "Load game failed "
 msgstr "بارگزاری بازی انجام نشد"
 
