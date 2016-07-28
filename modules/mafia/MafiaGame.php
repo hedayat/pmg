@@ -588,13 +588,16 @@ class MafiaGame {
             }
 
             $nick = MafiaGame::boco($nick);
-            $this->say(Config::$lobbyRoom, _("User $nick is leaving! all votes to him/her are set to not vote!"));
-            $this->say(Config::$mafiaRoom, _("User $nick is leaving! all votes to him/her are set to not vote!"));
+            $this->say(Config::$lobbyRoom,
+                sprintf(_("User %s is leaving! all votes to him/her are set to not vote!"), $nick));
+            $this->say(Config::$mafiaRoom,
+                sprintf(_("User %s is leaving! all votes to him/her are set to not vote!"), $nick));
         } else {
             unset($this->inGameNicks[strtolower($nick)]);
             unset($this->inGamePart[strtolower($nick)]);
             $this->say($nick, _("See you soon :)"));
-            $this->say(Config::$lobbyRoom, _("$nick leave the game :(, total players: {$this->getCount()}"));
+            $this->say(Config::$lobbyRoom,
+                sprintf(_("%s left the game :(, total players: %d"), $nick, $this->getCount()));
         }
     }
 
@@ -1020,16 +1023,17 @@ class MafiaGame {
         $game = self::getInstance();
         $count = 0;
         foreach ($game->inGamePart as $nick => $data) {
-            $type = $game->isMafia($data) ? 'Mafia' : 'NOT Mafia';
-            $type .= $game->getTypeOf($nick) === DR_PPL ? ' AND Doctor' : '';
-            $type .= $game->getTypeOf($nick) === DETECTIVE_PPL ? ' AND Detective' : '';
-            $type .= $game->getTypeOf($nick) === NOHARM_PPL ? ' AND Invulnerable' : '';
-            $type .= $game->getTypeOf($nick) === GODFATHER_PPL ? ' AND GodFather' : '';
+            $type = $game->isMafia($data) ? _('Mafia') : _('Citizen');
+            $type .= $game->getTypeOf($nick) === DR_PPL ? _(' AND Doctor') : '';
+            $type .= $game->getTypeOf($nick) === DETECTIVE_PPL ? _(' AND Detective') : '';
+            $type .= $game->getTypeOf($nick) === NOHARM_PPL ? _(' AND Invulnerable') : '';
+            $type .= $game->getTypeOf($nick) === GODFATHER_PPL ? _(' AND GodFather') : '';
             $type = MafiaGame::boco(6, $type);
-            $aliveOrDead = $game->isAlive($nick) ? 'Alive' : 'Dead';
+            $aliveOrDead = $game->isAlive($nick) ? _('Alive') : _('Dead');
             $aliveOrDead = MafiaGame::boco(7, $aliveOrDead);
             $cNick = MafiaGame::boco(2, $nick);
-            $game->say(Config::$lobbyRoom, _("$cNick was $type and is $aliveOrDead "));
+            $game->say(Config::$lobbyRoom,
+                sprintf(_("%s was %s and is %s"), $cNick, $type, $aliveOrDead));
 
             $count++;
 
@@ -1039,8 +1043,8 @@ class MafiaGame {
             }
         }
         $game->setMode(Config::$lobbyRoom, "-m");
-        $game->say(Config::$lobbyRoom, _("Please leave ") . Config::$mafiaRoom);
-        $game->say(Config::$mafiaRoom, _("Please leave ") . Config::$mafiaRoom);
+        $game->say(Config::$lobbyRoom, sprintf(_("Please leave %s"), Config::$mafiaRoom));
+        $game->say(Config::$mafiaRoom, sprintf(_("Please leave %s"), Config::$mafiaRoom));
         //last:D kick all, from mafia channel
         $game = self::getInstance();
         foreach ($game->inGameNicks as $nick => $data) {
@@ -1267,7 +1271,7 @@ class MafiaGame {
 
         $this->lastWish = $wish;
 
-        $this->say(Config::$lobbyRoom, _("This is $I's last wish :"));
+        $this->say(Config::$lobbyRoom, sprintf(_("This is %s's last wish: "), $I));
         $this->say(Config::$lobbyRoom, $wish);
     }
 
@@ -1281,7 +1285,7 @@ class MafiaGame {
         $I = strtolower($I);
         $you = strtolower($you);
         if ($this->state != MAFIA_TURN) {
-            $this->say($I, _("you can not heal, just in night."));
+            $this->say($I, _("You can not heal, just in night."));
             return;
         }
 
@@ -1289,7 +1293,7 @@ class MafiaGame {
                 && $this->isAlive($I)
                 && $this->getTypeOf($I) == DR_PPL) {
             $this->drVote = $you;
-            $this->say($I, _("you heal $you"));
+            $this->say($I, sprintf(_("You heal %s"), $you));
 
             if ($I == $you) {
                 $this->act($I, _("Thinks you are selfish!"));
@@ -1298,7 +1302,7 @@ class MafiaGame {
             $this->drVote = false;
             $this->say($I, _("You heal no body! heal some one!"));
         } else {
-            $this->say($I, _("You can not heal $you!"));
+            $this->say($I, sprintf(_("You can not heal %s!"), $you));
         }
 
         $this->nightTimeEnd();
@@ -1345,7 +1349,8 @@ class MafiaGame {
         foreach ($result as $dead => $wanted) {
             if ($dead === false) continue;
             if (!$nokill)
-                $this->say(Config::$lobbyRoom, MafiaGame::boco(2, $dead) . _(" has $wanted vote(s)"));
+                $this->say(Config::$lobbyRoom,
+                    sprintf(_("%s has %d vote(s)"), MafiaGame::boco(2, $dead), $wanted));
             if ($wanted == $max)
                 $hasDuplicate = true;
             elseif ($wanted > $max) {
@@ -1428,7 +1433,7 @@ class MafiaGame {
                 $this->say($I, sprintf(_("%s is %s"), $you, $result));
             }
         } else {
-            $this->say($I, _("You can not know $you!"));
+            $this->say($I, sprintf(_("You can not know %s!"), $you));
         }
 
         $this->nightTimeEnd();
@@ -1504,7 +1509,7 @@ class MafiaGame {
                             $max = $wanted;
                         }
                     }
-                    $this->act(Config::$mafiaRoom, _("Kill forced to $who"));
+                    $this->act(Config::$mafiaRoom, sprintf(_("Kill forced to %s"), $who));
                     if ($who != "*" && strtolower($who) != strtolower($this->drVote)) {
                         $this->inGamePart[strtolower($who)]['alive'] = false;
                         $this->state = DAY_TURN;
