@@ -38,18 +38,18 @@ class MafiaSlap extends Module {
 
         $target = $this->parameters(1);
         if (!$game->isIn($target)) {
-            $server->message($I, _("$target is not in game ;) so why hate him/her this much?"));
+            $server->message($I, sprintf(_("%s is not in game ;) so why hate him/her this much?"), $target));
             return;
         }
 
         $cleareString = $this->ParseString($this->parameters(2, true));
-        $server->message(Config::$lobbyRoom, _("$I slaps $target $cleareString"));
+        $server->message(Config::$lobbyRoom, sprintf(_("%s slaps %s %s"), $I, $target, $cleareString));
     }
 
     public function ParseString($str) {
         $str = trim($str);
         if (!preg_match('/^for/i', $str) && strlen($str) > 0) {
-            $str = 'for ' . $str;
+            $str = _('for ') . $str;
         }
         return $str;
     }

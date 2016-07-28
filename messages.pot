@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-28 17:18+0430\n"
+"POT-Creation-Date: 2016-07-28 18:12+0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -366,12 +366,33 @@ msgstr ""
 msgid "You are not in game ;) may be next time"
 msgstr ""
 
+#: modules/mafia/MafiaWhois.php:33
+#, php-format
+msgid "%s is not in game ;) why so suspicious about him/her?"
+msgstr ""
+
 #: modules/mafia/MafiaTimeout.php:19
 msgid "Checking time out. please wait! request from : "
 msgstr ""
 
+#: modules/mafia/MafiaValidate.php:28
+#, php-format
+msgid "User %s not found among registered users!"
+msgstr ""
+
+#: modules/mafia/MafiaValidate.php:58
+#, php-format
+msgid "User %s validated!"
+msgstr ""
+
 #: modules/mafia/MafiaKill.php:19
 msgid "Not killing time!"
+msgstr ""
+
+#: modules/mafia/MafiaKill.php:32 modules/mafia/MafiaMafia.php:43
+#: modules/mafia/MafiaSlap.php:41 modules/mafia/MafiaPunish.php:32
+#, php-format
+msgid "%s is not in game ;) so why hate him/her this much?"
 msgstr ""
 
 #: modules/mafia/MafiaStartGame.php:18
@@ -389,13 +410,27 @@ msgid ""
 msgstr ""
 
 #: modules/mafia/MafiaMafia.php:48
-msgid " is Mafia "
+#, php-format
+msgid "%s thinks %s is Mafia %s"
+msgstr ""
+
+#: modules/mafia/MafiaMafia.php:54
+msgid "because "
 msgstr ""
 
 #: modules/mafia/MafiaSlap.php:34
 msgid ""
 "You are alive, In dead IS dead mode, you can not use emots if you are alive. "
 "use your own hand for slap!!!"
+msgstr ""
+
+#: modules/mafia/MafiaSlap.php:46
+#, php-format
+msgid "%s slaps %s %s"
+msgstr ""
+
+#: modules/mafia/MafiaSlap.php:52
+msgid "for "
 msgstr ""
 
 #: modules/mafia/MafiaGame.php:325
@@ -578,7 +613,8 @@ msgid "%s is %s!"
 msgstr ""
 
 #: modules/mafia/MafiaGame.php:948
-msgid " is in the game."
+#, php-format
+msgid "%s is in the game."
 msgstr ""
 
 #: modules/mafia/MafiaGame.php:1026 modules/mafia/MafiaGame.php:1431
@@ -928,4 +964,9 @@ msgstr ""
 
 #: modules/mafia/MafiaHeal.php:19
 msgid "Not healing time!"
+msgstr ""
+
+#: modules/mafia/MafiaHeal.php:29
+#, php-format
+msgid "%s is not in game ;) are you in love with him/her?"
 msgstr ""

@@ -29,7 +29,8 @@ class MafiaWhois extends Module {
 		$you = $this->parameters(1);
 		if (!$game->isIn($you) && $you != "*")
 		{
-			$server->message($I, _("$you is not in game ;) why so suspicious about him/her?"));
+			$server->message($I,
+                            sprintf(_("%s is not in game ;) why so suspicious about him/her?"), $you));
 			return;
 		}
 		$game->iSayWhoAreYou($I , $you);

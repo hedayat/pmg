@@ -26,7 +26,7 @@ class MafiaHeal extends Module {
         }
         $you = $this->parameters(1);
         if (!$game->isIn($you) && $you != "*" && $you != "-") {
-            $server->message($I, _("$you is not in game ;) are you in love with him/her?"));
+            $server->message($I, sprintf(_("%s is not in game ;) are you in love with him/her?"), $you));
             return;
         }
         $game->iSayHealYou($I, $you);

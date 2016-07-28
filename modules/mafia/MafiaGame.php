@@ -945,7 +945,7 @@ class MafiaGame {
             }
         } else {
             foreach ($this->inGameNicks as $nick => $data) {
-                $this->say($user, MafiaGame::boco(2, $nick) . _(" is in the game."));
+                $this->say($user, sprintf(_("%s is in the game."), MafiaGame::boco(2, $nick)));
                 $count++;
                 if ($count > 5) {
                     sleep(1);

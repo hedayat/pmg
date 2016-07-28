@@ -25,7 +25,7 @@ class MafiaValidate extends Module {
             }
         }
         if (!$found) {
-            $server->act($this->senderNick, _("User $user not found in registered user!"));
+            $server->act($this->senderNick, sprintf(_("User %s not found among registered users!"), $user));
             $game->removeNick($user);
             return false;
         }
@@ -55,7 +55,7 @@ class MafiaValidate extends Module {
         //    $game->removeNick($who);
         // }
 
-        $server->act($this->senderNick, _("Validation of user $user done!"));
+        $server->act($this->senderNick, sprintf(_("User %s validated!"), $user));
 
         //    self::$lastValidateTime = 0;
         //     self::$lastValidateUser = '';

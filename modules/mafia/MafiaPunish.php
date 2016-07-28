@@ -28,7 +28,8 @@ class MafiaPunish extends Module {
 		$you = $this->parameters(1);
 		if (!$game->isIn($you) && $you != '-')
 		{
-			$server->message($I, _("$you is not in game ;) so why hate him/her this much?"));
+			$server->message($I,
+                            sprintf(_("%s is not in game ;) so why hate him/her this much?"), $you));
 			return;
 		}
 		$game->iSayPunishYou($I , $you);
