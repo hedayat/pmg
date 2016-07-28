@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-26 22:54+0430\n"
+"POT-Creation-Date: 2016-07-28 17:18+0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -198,49 +198,49 @@ msgstr ""
 msgid "<rawmessage>"
 msgstr ""
 
-#: modules/mafia/MafiaOpt.php:16
+#: modules/mafia/MafiaOpt.php:17
 msgid "Show identity on day punish is ON (show-mafia 1)"
 msgstr ""
 
-#: modules/mafia/MafiaOpt.php:18
+#: modules/mafia/MafiaOpt.php:19
 msgid "Show identity on day punish is OFF (show-mafia 0)"
 msgstr ""
 
-#: modules/mafia/MafiaOpt.php:23
+#: modules/mafia/MafiaOpt.php:25
 msgid "Mafia win state is when mafia cnt = ppl cnt (mafia-state 0)"
 msgstr ""
 
-#: modules/mafia/MafiaOpt.php:25
+#: modules/mafia/MafiaOpt.php:27
 msgid "Mafia win state is when ppl cnt = 0 (mafia-state 1)"
 msgstr ""
 
-#: modules/mafia/MafiaOpt.php:30
+#: modules/mafia/MafiaOpt.php:33
 msgid "Dead people can talk (dead-talk 1)"
 msgstr ""
 
-#: modules/mafia/MafiaOpt.php:32
+#: modules/mafia/MafiaOpt.php:35
 msgid "Dead people can not talk (sorry) (dead-talk 0)"
 msgstr ""
 
-#: modules/mafia/MafiaOpt.php:37
+#: modules/mafia/MafiaOpt.php:41
 msgid "Verbose mode in ON (verbose 1)"
 msgstr ""
 
-#: modules/mafia/MafiaOpt.php:39
+#: modules/mafia/MafiaOpt.php:43
 msgid "Verbose mode in OFF (verbose 0)"
 msgstr ""
 
-#: modules/mafia/MafiaOpt.php:43
+#: modules/mafia/MafiaOpt.php:48
 #, php-format
 msgid "Day timeout is %d secound (day-time %d)"
 msgstr ""
 
-#: modules/mafia/MafiaOpt.php:47
+#: modules/mafia/MafiaOpt.php:53
 #, php-format
 msgid "Night timeout is %d secound (night-time %d)"
 msgstr ""
 
-#: modules/mafia/MafiaOpt.php:51
+#: modules/mafia/MafiaOpt.php:58
 #, php-format
 msgid "Last defense timeout is %d secound(s) (punish-time %d)"
 msgstr ""
@@ -257,7 +257,7 @@ msgstr ""
 msgid "!punish -  : To remove your vote"
 msgstr ""
 
-#: modules/mafia/MafiaHelp.php:19 modules/mafia/MafiaGame.php:1119
+#: modules/mafia/MafiaHelp.php:19 modules/mafia/MafiaGame.php:1123
 msgid "!vote  : To see other people votes"
 msgstr ""
 
@@ -309,7 +309,7 @@ msgstr ""
 msgid "!kill -  : To remove your vote"
 msgstr ""
 
-#: modules/mafia/MafiaHelp.php:37 modules/mafia/MafiaGame.php:1098
+#: modules/mafia/MafiaHelp.php:37 modules/mafia/MafiaGame.php:1102
 msgid "!vote  : To see other mafias (and their votes)"
 msgstr ""
 
@@ -317,8 +317,8 @@ msgstr ""
 msgid "Global Commands:"
 msgstr ""
 
-#: modules/mafia/MafiaHelp.php:41 modules/mafia/MafiaGame.php:1099
-#: modules/mafia/MafiaGame.php:1120
+#: modules/mafia/MafiaHelp.php:41 modules/mafia/MafiaGame.php:1103
+#: modules/mafia/MafiaGame.php:1124
 msgid "!list  : To see list of all players"
 msgstr ""
 
@@ -330,7 +330,7 @@ msgstr ""
 msgid "!whoami: To see who you are!"
 msgstr ""
 
-#: modules/mafia/MafiaHelp.php:44 modules/mafia/MafiaGame.php:1121
+#: modules/mafia/MafiaHelp.php:44 modules/mafia/MafiaGame.php:1125
 msgid ""
 "!voice : If you must have voice and you have no voice, (mostly reconnect "
 "problems)"
@@ -436,411 +436,481 @@ msgstr ""
 msgid "You are dead, so its ok to leave. just say goodbye to other people ;D"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:596
+#: modules/mafia/MafiaGame.php:592 modules/mafia/MafiaGame.php:594
+#, php-format
+msgid "User %s is leaving! all votes to him/her are set to not vote!"
+msgstr ""
+
+#: modules/mafia/MafiaGame.php:598
 msgid "See you soon :)"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:652 modules/mafia/MafiaGame.php:1577
+#: modules/mafia/MafiaGame.php:600
+#, php-format
+msgid "%s left the game :(, total players: %d"
+msgstr ""
+
+#: modules/mafia/MafiaGame.php:655 modules/mafia/MafiaGame.php:1582
 msgid "You are the Godfather!!"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:654 modules/mafia/MafiaGame.php:1579
+#: modules/mafia/MafiaGame.php:657 modules/mafia/MafiaGame.php:1584
 msgid "You are mafia!!"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:655 modules/mafia/MafiaGame.php:1580
+#: modules/mafia/MafiaGame.php:658 modules/mafia/MafiaGame.php:1585
 msgid "Mafia crew: "
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:657 modules/mafia/MafiaGame.php:1582
+#: modules/mafia/MafiaGame.php:660 modules/mafia/MafiaGame.php:1587
 #, php-format
 msgid "You are mafia :D Please join %s and %s"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:665 modules/mafia/MafiaGame.php:1585
+#: modules/mafia/MafiaGame.php:668 modules/mafia/MafiaGame.php:1590
 msgid "Use this command :"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:667 modules/mafia/MafiaGame.php:1587
+#: modules/mafia/MafiaGame.php:670 modules/mafia/MafiaGame.php:1592
 msgid "You are <NOT> mafia!"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:669 modules/mafia/MafiaGame.php:1589
+#: modules/mafia/MafiaGame.php:672 modules/mafia/MafiaGame.php:1594
 #, php-format
 msgid ""
 "The game begin, go to sleep! (Join %s room please and stay away from %s its "
 "dangerous!)"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:678 modules/mafia/MafiaGame.php:1596
+#: modules/mafia/MafiaGame.php:681 modules/mafia/MafiaGame.php:1601
 #, php-format
 msgid "You are doctor!, use %s command in PRIVATE to heal one ppl in NIGHT!"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:686 modules/mafia/MafiaGame.php:1601
+#: modules/mafia/MafiaGame.php:689 modules/mafia/MafiaGame.php:1606
 #, php-format
 msgid ""
 "You are detective!, use %s command in PRIVATE to identify one ppl each NIGHT!"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:693 modules/mafia/MafiaGame.php:1605
+#: modules/mafia/MafiaGame.php:696 modules/mafia/MafiaGame.php:1610
 msgid "You are Invulnerable! you die only with punish command!"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:698
+#: modules/mafia/MafiaGame.php:701
 msgid "The game is on! gg and have fun!"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:731
+#: modules/mafia/MafiaGame.php:734
 msgid "You need to set game name with !name command."
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:735
+#: modules/mafia/MafiaGame.php:738
 msgid "At least one mafia must exist!"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:752
+#: modules/mafia/MafiaGame.php:755
 #, php-format
 msgid "You need at least %d player but you are %d"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:756 modules/mafia/MafiaGame.php:757
-#: modules/mafia/MafiaGame.php:758 modules/mafia/MafiaGame.php:759
+#: modules/mafia/MafiaGame.php:759 modules/mafia/MafiaGame.php:760
+#: modules/mafia/MafiaGame.php:761 modules/mafia/MafiaGame.php:762
 msgid "One"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:756 modules/mafia/MafiaGame.php:757
-#: modules/mafia/MafiaGame.php:758 modules/mafia/MafiaGame.php:759
+#: modules/mafia/MafiaGame.php:759 modules/mafia/MafiaGame.php:760
+#: modules/mafia/MafiaGame.php:761 modules/mafia/MafiaGame.php:762
 msgid "No"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:760
+#: modules/mafia/MafiaGame.php:763
 #, php-format
 msgid ""
 "Starting game with %d Mafia(s), %s Dr, %s Detective, %s Invulnerable, and %s "
 "Godfather."
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:783
+#: modules/mafia/MafiaGame.php:786
 msgid "Selecting roles..."
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:790
+#: modules/mafia/MafiaGame.php:793
 #, php-format
 msgid "DEBUG : Choose %d dr from %d player"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:799
+#: modules/mafia/MafiaGame.php:802
 #, php-format
 msgid "DEBUG : Choose %d detective from %d player"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:807
+#: modules/mafia/MafiaGame.php:810
 #, php-format
 msgid "DEBUG : Choose %d inv from %d player"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:815
+#: modules/mafia/MafiaGame.php:818
 #, php-format
 msgid "DEBUG : Choose %d godfather from %d player"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:822
+#: modules/mafia/MafiaGame.php:825
 #, php-format
 msgid "DEBUG : Choose %d mafia from %d player"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:925
+#: modules/mafia/MafiaGame.php:928
 msgid "Get user list , player count : "
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:931
+#: modules/mafia/MafiaGame.php:934
 msgid "ALIVE"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:934
+#: modules/mafia/MafiaGame.php:937
 msgid "DEAD"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:936
+#: modules/mafia/MafiaGame.php:939
 #, php-format
 msgid "%s is %s!"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:945
+#: modules/mafia/MafiaGame.php:948
 msgid " is in the game."
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1042 modules/mafia/MafiaGame.php:1043
-msgid "Please leave "
+#: modules/mafia/MafiaGame.php:1026 modules/mafia/MafiaGame.php:1431
+msgid "Mafia"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1094
+#: modules/mafia/MafiaGame.php:1026 modules/mafia/MafiaGame.php:1432
+msgid "Citizen"
+msgstr ""
+
+#: modules/mafia/MafiaGame.php:1027
+msgid " AND Doctor"
+msgstr ""
+
+#: modules/mafia/MafiaGame.php:1028
+msgid " AND Detective"
+msgstr ""
+
+#: modules/mafia/MafiaGame.php:1029
+msgid " AND Invulnerable"
+msgstr ""
+
+#: modules/mafia/MafiaGame.php:1030
+msgid " AND GodFather"
+msgstr ""
+
+#: modules/mafia/MafiaGame.php:1032
+msgid "Alive"
+msgstr ""
+
+#: modules/mafia/MafiaGame.php:1032
+msgid "Dead"
+msgstr ""
+
+#: modules/mafia/MafiaGame.php:1036
+#, php-format
+msgid "%s was %s and is %s"
+msgstr ""
+
+#: modules/mafia/MafiaGame.php:1046 modules/mafia/MafiaGame.php:1047
+#, php-format
+msgid "Please leave %s"
+msgstr ""
+
+#: modules/mafia/MafiaGame.php:1098
 #, php-format
 msgid "Your turn to kill!! use %s command to vote"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1096
+#: modules/mafia/MafiaGame.php:1100
 msgid "!kill *  : for kill nobody"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1097
+#: modules/mafia/MafiaGame.php:1101
 msgid "!kill -  : for remove your vote"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1100
+#: modules/mafia/MafiaGame.php:1104
 msgid "!timeout  : To end the night after "
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1102
+#: modules/mafia/MafiaGame.php:1106
 msgid "Good night ppl ;)"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1109
+#: modules/mafia/MafiaGame.php:1113
 msgid "Your turn to hide!!"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1112
+#: modules/mafia/MafiaGame.php:1116
 #, php-format
 msgid ""
 "Hi ppl, there is a dead! lets find the killer and punish him/her. use %s "
 "command"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1115
+#: modules/mafia/MafiaGame.php:1119
 #, php-format
 msgid ""
 "Hi ppl, No one dead. peeowh!! either its a doctor's job or mafia trick :D, "
 "but who care? use %s command"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1118
+#: modules/mafia/MafiaGame.php:1122
 msgid "!punish -  : for remove your vote"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1122
+#: modules/mafia/MafiaGame.php:1126
 msgid "!timeout  : To end the day after "
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1122
+#: modules/mafia/MafiaGame.php:1126
 #, php-format
 msgid " and 60% of player cast their vote."
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1138
+#: modules/mafia/MafiaGame.php:1142
 #, php-format
 msgid "There is %d player, %d dead and %d mafia player"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1140
+#: modules/mafia/MafiaGame.php:1144
 #, php-format
 msgid "There is %d player, %d dead"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1144 modules/mafia/MafiaGame.php:1151
+#: modules/mafia/MafiaGame.php:1148 modules/mafia/MafiaGame.php:1155
 msgid "Mafia won!"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1159
+#: modules/mafia/MafiaGame.php:1163
 msgid "Ppl won!"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1178
+#: modules/mafia/MafiaGame.php:1182
 msgid "Wow! you are mad! its day time!"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1187
+#: modules/mafia/MafiaGame.php:1191
 #, php-format
 msgid "%s casted his/her vote for killing %s"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1190
+#: modules/mafia/MafiaGame.php:1194
 #, php-format
 msgid "%s removed his/her vote. be fast :)"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1192
+#: modules/mafia/MafiaGame.php:1196
 msgid "Your vote not accepted!"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1206 modules/mafia/MafiaGame.php:1229
+#: modules/mafia/MafiaGame.php:1210 modules/mafia/MafiaGame.php:1233
 msgid "Waiting for dr/detective/mafias to vote !"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1224 modules/mafia/MafiaGame.php:1370
+#: modules/mafia/MafiaGame.php:1228 modules/mafia/MafiaGame.php:1375
 msgid "There is a tie! please some one fix his/her vote!"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1238 modules/mafia/MafiaGame.php:1511
+#: modules/mafia/MafiaGame.php:1242 modules/mafia/MafiaGame.php:1516
 #, php-format
 msgid "You kill %s"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1239 modules/mafia/MafiaGame.php:1512
+#: modules/mafia/MafiaGame.php:1243 modules/mafia/MafiaGame.php:1517
 #, php-format
 msgid "ALERT!!! They killed %s, lets find the killer!"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1240 modules/mafia/MafiaGame.php:1513
+#: modules/mafia/MafiaGame.php:1244 modules/mafia/MafiaGame.php:1518
 msgid "You are dead! please respect others and be quiet. Thanks."
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1244 modules/mafia/MafiaGame.php:1517
+#: modules/mafia/MafiaGame.php:1248 modules/mafia/MafiaGame.php:1522
 msgid "Nobody killed :D"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1245 modules/mafia/MafiaGame.php:1518
+#: modules/mafia/MafiaGame.php:1249 modules/mafia/MafiaGame.php:1523
 msgid "No body kiled last night! WOOOW! but lets hunt some of them!"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1256
+#: modules/mafia/MafiaGame.php:1260
 msgid "You are not the last dead people!"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1258
+#: modules/mafia/MafiaGame.php:1262
 msgid "You are not dead! you are a cheat!"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1264
+#: modules/mafia/MafiaGame.php:1268
 msgid "You already said : "
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1284
-msgid "you can not heal, just in night."
+#: modules/mafia/MafiaGame.php:1274
+#, php-format
+msgid "This is %s's last wish: "
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1295
-msgid "Thinks you are selfish!"
+#: modules/mafia/MafiaGame.php:1288
+msgid "You can not heal, just in night."
+msgstr ""
+
+#: modules/mafia/MafiaGame.php:1296
+#, php-format
+msgid "You heal %s"
 msgstr ""
 
 #: modules/mafia/MafiaGame.php:1299
+msgid "Thinks you are selfish!"
+msgstr ""
+
+#: modules/mafia/MafiaGame.php:1303
 msgid "You heal no body! heal some one!"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1317
+#: modules/mafia/MafiaGame.php:1305
+#, php-format
+msgid "You can not heal %s!"
+msgstr ""
+
+#: modules/mafia/MafiaGame.php:1321
 msgid "Wow! you are mad! its night!"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1324
+#: modules/mafia/MafiaGame.php:1328
 #, php-format
 msgid "%s casted his/her vote for punishing %s"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1327
+#: modules/mafia/MafiaGame.php:1331
 #, php-format
 msgid "%s removed his/her vote!"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1329
+#: modules/mafia/MafiaGame.php:1333
 msgid "Your vote is not accepted!"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1359
+#: modules/mafia/MafiaGame.php:1353
+#, php-format
+msgid "%s has %d vote(s)"
+msgstr ""
+
+#: modules/mafia/MafiaGame.php:1364
 msgid "Punishing canceled!"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1365 modules/mafia/MafiaGame.php:1378
-#: modules/mafia/MafiaGame.php:1383
+#: modules/mafia/MafiaGame.php:1370 modules/mafia/MafiaGame.php:1383
+#: modules/mafia/MafiaGame.php:1388
 #, php-format
 msgid "You will punish %s in %d seconds if his/her votes don't decrease..."
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1388
+#: modules/mafia/MafiaGame.php:1393
 msgid "Your turn to kill!"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1389
+#: modules/mafia/MafiaGame.php:1394
 msgid "You punish "
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1391
+#: modules/mafia/MafiaGame.php:1396
 #, php-format
 msgid ""
 "You are dead! please respect others and be quiet. Thanks. You can use %s "
 "command ONLY ONCE to make your last wish."
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1412
+#: modules/mafia/MafiaGame.php:1417
 msgid "Stay hidden! they kill you if they find you!"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1417
+#: modules/mafia/MafiaGame.php:1422
 msgid "Do not over-do :) you already know too much!"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1426
-msgid "Mafia"
-msgstr ""
-
-#: modules/mafia/MafiaGame.php:1427
-msgid "Citizen"
-msgstr ""
-
-#: modules/mafia/MafiaGame.php:1428
+#: modules/mafia/MafiaGame.php:1433
 #, php-format
 msgid "%s is %s"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1445
+#: modules/mafia/MafiaGame.php:1436
+#, php-format
+msgid "You can not know %s!"
+msgstr ""
+
+#: modules/mafia/MafiaGame.php:1450
 msgid "You are not in game!"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1471
+#: modules/mafia/MafiaGame.php:1476
 msgid "Kiding me, right? They kill me if I tell you!"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1484
+#: modules/mafia/MafiaGame.php:1489
 msgid "Sorry, time out :D"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1485
+#: modules/mafia/MafiaGame.php:1490
 msgid "Day time!"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1526
+#: modules/mafia/MafiaGame.php:1512
+#, php-format
+msgid "Kill forced to %s"
+msgstr ""
+
+#: modules/mafia/MafiaGame.php:1531
 #, php-format
 msgid "%d secound remain from night!"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1538
+#: modules/mafia/MafiaGame.php:1543
 #, php-format
 msgid "More than 60% of players cast their votes and day time out is ended. "
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1539
+#: modules/mafia/MafiaGame.php:1544
 msgid "DOOM!"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1539
+#: modules/mafia/MafiaGame.php:1544
 msgid " has come to this world :D"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1540
+#: modules/mafia/MafiaGame.php:1545
 msgid "If there is a tie, cast your vote in private."
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1550
+#: modules/mafia/MafiaGame.php:1555
 #, php-format
 msgid "%d secound remain from day, %d player of %d cast their vote!"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1565
+#: modules/mafia/MafiaGame.php:1570
 msgid "You are nobody :D"
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1620
+#: modules/mafia/MafiaGame.php:1625
 msgid "Save game : "
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1622
+#: modules/mafia/MafiaGame.php:1627
 msgid "Save game failed "
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1634 modules/mafia/MafiaGame.php:1636
+#: modules/mafia/MafiaGame.php:1639 modules/mafia/MafiaGame.php:1641
 msgid "Load game : "
 msgstr ""
 
-#: modules/mafia/MafiaGame.php:1639
+#: modules/mafia/MafiaGame.php:1644
 msgid "Load game failed "
 msgstr ""
 
