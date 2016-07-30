@@ -34,7 +34,7 @@ class Server {
         }
 
         public function getProxies() {
-             return array_values($this->proxyNicks);
+             return array_unique(array_values($this->proxyNicks));
         }
 
 
