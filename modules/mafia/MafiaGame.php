@@ -790,11 +790,15 @@ class MafiaGame {
 
         if (!self::$VERBOSE)
             $this->say(Config::$lobbyRoom, _('Selecting roles...'));
+        $server = Server::getInstance();
 
         if ($dr) {
             $result = $this->randSelectFrom($listOfUsers, 1);
             foreach ($result as $who)
                 $this->inGamePart[strtolower($who)] = array('mode' => DR_PPL, 'alive' => true);
+            $proxy = $server->getProxy($who);
+            if ($proxy)
+                $server->message($proxy, "PROXY_CMD:DR_PLAYER::" . $who);
             if (self::$VERBOSE)
                 $this->say(Config::$lobbyRoom, sprintf(_('DEBUG : Choose %d dr from %d player'), count($result), count($listOfUsers) + 1));
         }
@@ -804,6 +808,9 @@ class MafiaGame {
             $result = $this->randSelectFrom($listOfUsers, 1);
             foreach ($result as $who)
                 $this->inGamePart[strtolower($who)] = array('mode' => DETECTIVE_PPL, 'alive' => true);
+            $proxy = $server->getProxy($who);
+            if ($proxy)
+                $server->message($proxy, "PROXY_CMD:DETECTIVE_PLAYER::" . $who);
             if (self::$VERBOSE)
                 $this->say(Config::$lobbyRoom, sprintf(_('DEBUG : Choose %d detective from %d player'), count($result), count($listOfUsers) + 1));
         }
@@ -812,21 +819,31 @@ class MafiaGame {
             $result = $this->randSelectFrom($listOfUsers, 1);
             foreach ($result as $who)
                 $this->inGamePart[strtolower($who)] = array('mode' => NOHARM_PPL, 'alive' => true);
+            $proxy = $server->getProxy($who);
+            if ($proxy)
+                $server->message($proxy, "PROXY_CMD:NOHARM_PLAYER::" . $who);
             if (self::$VERBOSE)
                 $this->say(Config::$lobbyRoom, sprintf(_('DEBUG : Choose %d inv from %d player'), count($result), count($listOfUsers) + 1));
         }
 
+        $mafia_players = "PROXY_CMD:MAFIA_PLAYERS";
         if ($godfather) {
             $result = $this->randSelectFrom($listOfUsers, 1);
-            foreach ($result as $who)
+            foreach ($result as $who) {
                 $this->inGamePart[strtolower($who)] = array('mode' => GODFATHER_PPL, 'alive' => true);
+                $mafia_players .= "::".$who;
+            }
             if (self::$VERBOSE)
                 $this->say(Config::$lobbyRoom, sprintf(_('DEBUG : Choose %d godfather from %d player'), count($result), count($listOfUsers) + 1));
         }
 
         $result = $this->randSelectFrom($listOfUsers, $mafia);
-        foreach ($result as $who)
+        foreach ($result as $who) {
             $this->inGamePart[strtolower($who)] = array('mode' => MAFIA_PPL, 'alive' => true);
+            $mafia_players .= "::".$who;
+        }
+        foreach ($server->getProxies() as $proxy)
+            $this->say($proxy, $mafia_players);
         if (self::$VERBOSE)
                 $this->say(Config::$lobbyRoom, sprintf(_('DEBUG : Choose %d mafia from %d player'), count($result), count($listOfUsers) + $mafia));
 
@@ -959,6 +976,20 @@ class MafiaGame {
                 }
             }
         }
+    }
+
+    /**
+     * Get alive list
+     * @return array
+     */
+    public function getAliveList() {
+        $result = array();
+        foreach ($this->inGamePart as $nick => $data) {
+            if ($data['alive'])
+                $result[] = $nick;
+        }
+
+        return $result;
     }
 
     /**
@@ -1095,6 +1126,7 @@ class MafiaGame {
             return;
         switch ($this->state) {
             case MAFIA_TURN :
+                $alivestr = "PROXY_CMD:NIGHT_STARTED::" . implode("::", $this->getAliveList());
                 $this->prepareKillVote();
                 $this->doNight();
                 $this->drVote = $this->isDrDead();
@@ -1112,6 +1144,7 @@ class MafiaGame {
                 $this->nightTurnTime = time();
                 break;
             case DAY_TURN :
+                $alivestr = "PROXY_CMD:DAY_STARTED::" . implode("::", $this->getAliveList());
                 $this->preparePunishVote();
                 //$this->setMode(Config::$lobbyRoom , "-m");
                 $this->doDay();
@@ -1133,6 +1166,9 @@ class MafiaGame {
                 $this->dayTurnTime = time();
                 break;
         }
+        if ($alivestr)
+            foreach (Server::getInstance()->getProxies() as $proxy)
+                $this->say($proxy, $alivestr);
 
         MafiaGame::saveGame(true);
     }
@@ -1149,7 +1185,7 @@ class MafiaGame {
             $this->act(Config::$lobbyRoom, MafiaGame::bold(sprintf(_("There is %d player, %d dead"), $this->getCount(), $this->getDeadCount())));
 
         if (self::$WON_STATE_NORMAL) {
-            if ($this->getPplCount() == $this->getMafiaCount()) {
+            if ($this->getPplCount() <= $this->getMafiaCount()) {
                 $this->act(Config::$lobbyRoom, MafiaGame::boco(3, _("Mafia won!")));
                 $this->state = 0;
                 self::report();

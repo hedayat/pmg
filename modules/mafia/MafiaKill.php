@@ -29,7 +29,7 @@ class MafiaKill extends Module {
 		if (!$game->isIn($you) && $you != "*" && $you != '-') 
 		{
 			$server->message($I,
-                            sprintf(_("%s is not in game ;) so why hate him/her this much?"), $you);
+                            sprintf(_("%s is not in game ;) so why hate him/her this much?"), $you));
 			return;
 		}
 		$game->iSayKillYou($I , $you);

@@ -33,6 +33,10 @@ class Server {
              return $this->proxyNicks[strtolower($proxyNick)];
         }
 
+        public function getProxies() {
+             return array_values($this->proxyNicks);
+        }
+
 
 	/**
 	 * Returns an instance of this Server singleton
