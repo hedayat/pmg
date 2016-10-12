@@ -1383,13 +1383,15 @@ class MafiaGame {
                 && isset($this->punishVotes[$I])) {
             $this->punishVotes[$I] = $you;
             $this->say(Config::$lobbyRoom, sprintf(_("%s casted his/her vote for punishing %s"), MafiaGame::boco(2, $I), MafiaGame::boco(2, $you)));
-        } elseif ($you == '-') {
+        } elseif ($you == '-' && $this->isAlive($I)) {
             $this->punishVotes[$I] = false;
             $this->say(Config::$lobbyRoom, sprintf(_("%s removed his/her vote!"), MafiaGame::boco(2, $I)));
         } else {
             $this->say($I, _("Your vote is not accepted!"));
         }
 
+        if (!$this->isAlive($I) && $I != '')
+            return;
         $nokill = false;
         foreach ($this->punishVotes as $vote)
             if ($vote === false) {
@@ -1611,7 +1613,7 @@ class MafiaGame {
                     }
                 }
                 if (!$vote_added)
-                    $this->iSayPunishYou('nobody', '');
+                    $this->iSayPunishYou('', '');
                 //$this->doNight();
             } else {
                 $this->say(Config::$lobbyRoom, sprintf(_("%d secound remain from day, %d player of %d cast their vote!"), self::$DAY_TIMEOUT - $remain, $count, $players));
