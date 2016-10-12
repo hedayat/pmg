@@ -1586,11 +1586,15 @@ class MafiaGame {
                 $this->say(Config::$lobbyRoom, _('If there is a tie, cast your vote in private.'));
 
 
+                $vote_added = false;
                 foreach ($this->punishVotes as $who => $vote) {
                     if (!$vote) {
                         $this->iSayPunishYou($who, $who);
+                        $vote_added = true;
                     }
                 }
+                if (!$vote_added)
+                    $this->iSayPunishYou('nobody', '');
                 //$this->doNight();
             } else {
                 $this->say(Config::$lobbyRoom, sprintf(_("%d secound remain from day, %d player of %d cast their vote!"), self::$DAY_TIMEOUT - $remain, $count, $players));
