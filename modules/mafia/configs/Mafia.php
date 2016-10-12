@@ -125,7 +125,7 @@ Mafia::$help = array(
 		"start" => array(
 			"BASE" => array(
 				"description" => _("Start game"),
-				"parameters" => _("<mafiacount> [<have_dr> [<have_detective> [<have_invulnerable> [<have_godfather>]]]]")
+				"parameters" => _("<mafiacount> [<have_dr> [<have_detective> [<have_invulnerable> [<have_godfather> [<have_natasha>]]]]]")
 			)
 		),
 		"restart" => array(

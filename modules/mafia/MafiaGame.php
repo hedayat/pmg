@@ -13,6 +13,7 @@ defined('DR_PPL') || define('DR_PPL', 3);
 defined('DETECTIVE_PPL') || define('DETECTIVE_PPL', 4);
 defined('NOHARM_PPL') || define('NOHARM_PPL', 5);
 defined('GODFATHER_PPL') || define('GODFATHER_PPL', 6);
+defined('NATASHA_PPL') || define('NATASHA_PPL', 6);
 
 use awesomeircbot\server\Server;
 use config\Config;
@@ -655,6 +656,8 @@ class MafiaGame {
             if ($this->isMafia($data)) {
                 if ($data['mode'] == GODFATHER_PPL)
                     $this->say($nick, MafiaGame::boco(9, _("You are the Godfather!!")));
+                else if ($data['mode'] == NATASHA_PPL)
+                    $this->say($nick, MafiaGame::boco(9, _("You are natasha!!")));
                 else
                     $this->say($nick, MafiaGame::boco(9, _("You are mafia!!")));
 
@@ -735,16 +738,15 @@ class MafiaGame {
      * @param integer $detective has detectiv or not, 0 for not
      * @param integer $noharm has noharm or not, 0 for not
      */
-    public function start($mafia, $dr = 0, $detective = 0, $noharm = 0, $godfather = 0) {
+    public function start($mafia, $dr = 0, $detective = 0, $noharm = 0, $godfather = 0, $natasha = 0) {
         if (!self::$gameName) {
             $this->say(Config::$lobbyRoom, _("You need to set game name with !name command."));
             return;
         }
-        if ($mafia == 0) {
+        if ($mafia == 0 && $natasha == 0) {
             $this->say(Config::$lobbyRoom, _("At least one mafia must exist!"));
             return;
         }
-        $normal = $this->getCount() - $mafia;
         if ($this->state <> 0)
             return;
 
@@ -757,6 +759,8 @@ class MafiaGame {
             $cnt++;
         if ($godfather)
             $cnt++;
+        if ($natasha)
+            $cnt++;
         if ($cnt > $this->getCount()) {
             $this->say(Config::$lobbyRoom, sprintf(_("You need at least %d player but you are %d"), $cnt, $this->getCount()));
             return;
@@ -766,7 +770,8 @@ class MafiaGame {
         $haveDet = $detective ? _("One") : _("No");
         $haveNoHarm = $noharm ? _("One") : _("No");
         $haveGodfather = $godfather ? _("One") : _("No");
-        $this->act(Config::$lobbyRoom, sprintf(self::bold(_("Starting game with %d Mafia(s), %s Dr, %s Detective, %s Invulnerable, and %s Godfather.")), $mafia, $haveDr, $haveDet, $haveNoHarm, $haveGodfather));
+        $haveNatasha = $natasha ? _("One") : _("No");
+        $this->act(Config::$lobbyRoom, sprintf(self::bold(_("Starting game with %d Mafia(s), %s Dr, %s Detective, %s Invulnerable, %s Godfather, and %s Natasha.")), $mafia, $haveDr, $haveDet, $haveNoHarm, $haveGodfather, $haveNatasha));
 
         $this->setOp(Config::$mafiaRoom, Config::$nickname);
         $this->setOp(Config::$lobbyRoom, Config::$nickname);
@@ -837,6 +842,16 @@ class MafiaGame {
                 $this->say(Config::$lobbyRoom, sprintf(_('DEBUG : Choose %d godfather from %d player'), count($result), count($listOfUsers) + 1));
         }
 
+        if ($natasha) {
+            $result = $this->randSelectFrom($listOfUsers, 1);
+            foreach ($result as $who) {
+                $this->inGamePart[strtolower($who)] = array('mode' => NATASHA_PPL, 'alive' => true);
+                $mafia_players .= "::".$who;
+            }
+            if (self::$VERBOSE)
+                $this->say(Config::$lobbyRoom, sprintf(_('DEBUG : Choose %d natasha from %d player'), count($result), count($listOfUsers) + 1));
+        }
+
         $result = $this->randSelectFrom($listOfUsers, $mafia);
         foreach ($result as $who) {
             $this->inGamePart[strtolower($who)] = array('mode' => MAFIA_PPL, 'alive' => true);
@@ -885,7 +900,7 @@ class MafiaGame {
         }
         else
             $part = $nick['mode'];
-        return $part === MAFIA_PPL || $part === GODFATHER_PPL;
+        return $part === MAFIA_PPL || $part === GODFATHER_PPL || $part === NATASHA_PPL;
     }
 
     /**
@@ -1065,6 +1080,7 @@ class MafiaGame {
             $type .= $game->getTypeOf($nick) === DETECTIVE_PPL ? _(' AND Detective') : '';
             $type .= $game->getTypeOf($nick) === NOHARM_PPL ? _(' AND Invulnerable') : '';
             $type .= $game->getTypeOf($nick) === GODFATHER_PPL ? _(' AND GodFather') : '';
+            $type .= $game->getTypeOf($nick) === NATASHA_PPL ? _(' AND Natasha') : '';
             $type = MafiaGame::boco(6, $type);
             $aliveOrDead = $game->isAlive($nick) ? _('Alive') : _('Dead');
             $aliveOrDead = MafiaGame::boco(7, $aliveOrDead);
@@ -1469,7 +1485,8 @@ class MafiaGame {
                 && $this->getTypeOf($I) == DETECTIVE_PPL)) {
             $this->detectiveVote = $you;
             if ($you != '*') {
-                $result = $this->getTypeOf($you) == MAFIA_PPL ? MafiaGame::boco(8, _("Mafia")) :
+                $result = $this->isMafia($you) && $this->getTypeOf($you) != GODFATHER_PPL ?
+                        MafiaGame::boco(8, _("Mafia")) :
                         MafiaGame::boco(8, _("Citizen"));
                 $this->say($I, sprintf(_("%s is %s"), $you, $result));
             }
@@ -1625,6 +1642,8 @@ class MafiaGame {
                     $mafia_pl = $mafia_pl . " " . $nick;
             if ($data['mode'] == GODFATHER_PPL)
                 $this->say($I, MafiaGame::boco(9, _("You are the Godfather!!")));
+            else if ($data['mode'] == NATASHA_PPL)
+                $this->say($I, MafiaGame::boco(9, _("You are natasha!!")));
             else
                 $this->say($I, MafiaGame::boco(9, _("You are mafia!!")));
             $this->say($I, MafiaGame::boco(9, _("Mafia crew: "). $mafia_pl));
