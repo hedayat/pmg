@@ -13,7 +13,7 @@ defined('DR_PPL') || define('DR_PPL', 3);
 defined('DETECTIVE_PPL') || define('DETECTIVE_PPL', 4);
 defined('NOHARM_PPL') || define('NOHARM_PPL', 5);
 defined('GODFATHER_PPL') || define('GODFATHER_PPL', 6);
-defined('NATASHA_PPL') || define('NATASHA_PPL', 6);
+defined('NATASHA_PPL') || define('NATASHA_PPL', 7);
 
 use awesomeircbot\server\Server;
 use config\Config;
