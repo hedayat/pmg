@@ -31,6 +31,7 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
 passthru('clear');
 
 putenv("LANG=".Config::$language);
+putenv("LANGUAGE=".Config::$language);
 setlocale(LC_ALL, Config::$language);
 
 define('TEXT_DOMAIN', 'messages');
