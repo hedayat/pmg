@@ -1588,7 +1588,7 @@ class MafiaGame {
                     $this->sayStatus($sayMe);
                 }
             } else {
-                $this->say(Config::$lobbyRoom, sprintf(_("%d secound remain from night!"), self::$NIGHT_TIMEOUT - $remain));
+                //$this->say(Config::$lobbyRoom, sprintf(_("%d secound remain from night!"), self::$NIGHT_TIMEOUT - $remain));
             }
         } elseif ($this->state == DAY_TURN) {
             $remain = time() - $this->dayTurnTime;
@@ -1616,7 +1616,7 @@ class MafiaGame {
                     $this->iSayPunishYou('', '');
                 //$this->doNight();
             } else {
-                $this->say(Config::$lobbyRoom, sprintf(_("%d secound remain from day, %d player of %d cast their vote!"), $players * self::$DAY_TIMEOUT - $remain, $count, $players));
+                //$this->say(Config::$lobbyRoom, sprintf(_("%d secound remain from day, %d player of %d cast their vote!"), $players * self::$DAY_TIMEOUT - $remain, $count, $players));
             }
         }
     }

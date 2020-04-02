@@ -28,7 +28,7 @@ class Mafia implements ModuleConfig {
 		"start" => "modules\mafia\MafiaStartGame",
 		"restart" => "modules\mafia\MafiaReStartGame",
 		"validate" => "modules\mafia\MafiaValidate",
-		"timeout" => "modules\mafia\MafiaTimeout",
+//		"timeout" => "modules\mafia\MafiaTimeout",
 		"count" => "modules\mafia\MafiaCount",
 		"wish" => "modules\mafia\MafiaWish",
 		"voice" => "modules\mafia\MafiaVoice",
@@ -46,6 +46,7 @@ class Mafia implements ModuleConfig {
 	);
 
 	public static $mappedTriggers = array(
+		"/.*/" => "modules\mafia\MafiaTimeout",
 	);
 
 	public static $help;
