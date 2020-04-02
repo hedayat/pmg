@@ -37,7 +37,7 @@ class MafiaGame {
      */
     static $DAY_TIMEOUT = 360;
 
-    static $PUNISH_TIMEOUT = 60;
+    static $PUNISH_TIMEOUT = 120;
 
     /**
      * 
