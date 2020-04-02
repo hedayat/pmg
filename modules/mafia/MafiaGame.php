@@ -1382,6 +1382,7 @@ class MafiaGame {
     public function iSayPunishYou($I, $you) {
         $I = strtolower($I);
         $you = strtolower($you);
+	$checkPunish = ($I == '' && $you == '');
         if ($this->state != DAY_TURN) {
             $this->say($I, _("Wow! you are mad! its night!"));
             return;
@@ -1398,7 +1399,7 @@ class MafiaGame {
             $this->say($I, _("Your vote is not accepted!"));
         }
 
-        if (!$this->isAlive($I) && $I != '')
+        if (!$this->isAlive($I) && !$checkPunish)
             return;
         $nokill = false;
         foreach ($this->punishVotes as $vote)
@@ -1415,7 +1416,7 @@ class MafiaGame {
         $hasDuplicate = false;
         foreach ($result as $dead => $wanted) {
             if ($dead === false) continue;
-            if (!$nokill)
+            if (!$nokill && !$checkPunish)
                 $this->say(Config::$lobbyRoom,
                     sprintf(_("%s has %d vote(s)"), MafiaGame::boco(2, $dead), $wanted));
             if ($wanted == $max)
@@ -1433,13 +1434,14 @@ class MafiaGame {
         }
 
         if ($nokill) {
-            if ($this->punishStartTime > 0)
+            if (!$checkPunish && $this->punishStartTime > 0)
                 $this->say(Config::$lobbyRoom, sprintf(_("You will punish %s in %d seconds if his/her votes don't decrease..."), MafiaGame::boco(2, $who), self::$PUNISH_TIMEOUT + $this->punishStartTime - time()));
             return;
         }
 
         if ($hasDuplicate) {
-            $this->say(Config::$lobbyRoom, MafiaGame::bold(_("There is a tie! please some one fix his/her vote!")));
+            if (!$checkPunish)
+                $this->say(Config::$lobbyRoom, MafiaGame::bold(_("There is a tie! please some one fix his/her vote!")));
             return;
         }
 
@@ -1452,7 +1454,8 @@ class MafiaGame {
         }
         else if (time() - $this->punishStartTime < self::$PUNISH_TIMEOUT)
         {
-            $this->say(Config::$lobbyRoom, sprintf(_("You will punish %s in %d seconds if his/her votes don't decrease..."), MafiaGame::boco(2, $who), self::$PUNISH_TIMEOUT + $this->punishStartTime - time()));
+            if (!$checkPunish)
+                $this->say(Config::$lobbyRoom, sprintf(_("You will punish %s in %d seconds if his/her votes don't decrease..."), MafiaGame::boco(2, $who), self::$PUNISH_TIMEOUT + $this->punishStartTime - time()));
             return;
         }
         $this->inGamePart[strtolower($who)]['alive'] = false;
@@ -1610,10 +1613,12 @@ class MafiaGame {
             $percent = $count * 100 / $players;
             $currentTimeout = $players * self::$DAY_TIMEOUT;
             if ($percent >= 0 && $remain > $currentTimeout) {
-                $this->say(Config::$lobbyRoom, _('More than 0% of players cast their votes and day time out is ended. '));
-                $this->say(Config::$lobbyRoom, $this->boco(2, _('DOOM!')) . _(' has come to this world :D'));
-                $this->say(Config::$lobbyRoom, _('If there is a tie, cast your vote in private.'));
-
+                if ($this->nextElapsedAnnounceTime > 0) {
+                     $this->say(Config::$lobbyRoom, _('More than 0% of players cast their votes and day time out is ended. '));
+                     $this->say(Config::$lobbyRoom, $this->boco(2, _('DOOM!')) . _(' has come to this world :D'));
+                     $this->say(Config::$lobbyRoom, _('If there is a tie, cast your vote in private.'));
+                     $this->nextElapsedAnnounceTime = 0;
+		}
 
                 $vote_added = false;
                 foreach ($this->punishVotes as $who => $vote) {
@@ -1628,7 +1633,9 @@ class MafiaGame {
             } else if ($remain > $this->nextElapsedAnnounceTime) {
                 $this->say(Config::$lobbyRoom, sprintf(_("%d secound remain from day, %d player of %d cast their vote!"), $currentTimeout - $remain, $count, $players));
                 $this->nextElapsedAnnounceTime += ($currentTimeout - $this->nextElapsedAnnounceTime) / 2;
-            }
+                $this->iSayPunishYou('', '');
+            } else
+                $this->iSayPunishYou('', '');
         }
     }
 
