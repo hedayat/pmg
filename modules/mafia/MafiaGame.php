@@ -102,6 +102,12 @@ class MafiaGame {
      */
     private $dayTurnTime = 0;
 
+    /**
+     * specifies the next elapsed time for announcement
+     * @var integer
+     */
+    private $nextElapsedAnnounceTime = 0;
+
     private $punishStartTime = 0;
     private $punishWho = "";
 
@@ -1158,6 +1164,7 @@ class MafiaGame {
                 }
                 $this->act(Config::$lobbyRoom, _("Good night ppl ;)"));
                 $this->nightTurnTime = time();
+                $this->nextElapsedAnnounceTime = 0;
                 break;
             case DAY_TURN :
                 $alivestr = "PROXY_CMD:DAY_STARTED::" . implode("::", $this->getAliveList());
@@ -1180,6 +1187,7 @@ class MafiaGame {
                     $this->say(Config::$lobbyRoom, MafiaGame::bold(_("!timeout  : To end the day after ") . self::$DAY_TIMEOUT . _(" and 60% of player cast their vote.")));
                 }
                 $this->dayTurnTime = time();
+                $this->nextElapsedAnnounceTime = 0;
                 break;
         }
         if ($alivestr)
@@ -1545,7 +1553,7 @@ class MafiaGame {
     public function checkNightTimeout() {
         if ($this->state == MAFIA_TURN) {
             $remain = time() - $this->nightTurnTime;
-            if (time() - $this->nightTurnTime > self::$NIGHT_TIMEOUT) {
+            if ($remain > self::$NIGHT_TIMEOUT) {
                 $this->act(Config::$mafiaRoom, MafiaGame::bold(_("Sorry, time out :D")));
                 $this->act(Config::$lobbyRoom, MafiaGame::bold(_("Day time!")));
 
@@ -1587,8 +1595,9 @@ class MafiaGame {
                         $this->listAllUsers(Config::$lobbyRoom);
                     $this->sayStatus($sayMe);
                 }
-            } else {
-                //$this->say(Config::$lobbyRoom, sprintf(_("%d secound remain from night!"), self::$NIGHT_TIMEOUT - $remain));
+            } else if ($remain > $this->nextElapsedAnnounceTime) {
+                $this->say(Config::$lobbyRoom, sprintf(_("%d secound remain from night!"), self::$NIGHT_TIMEOUT - $remain));
+                $this->nextElapsedAnnounceTime += (self::$NIGHT_TIMEOUT - $this->nextElapsedAnnounceTime) / 2;
             }
         } elseif ($this->state == DAY_TURN) {
             $remain = time() - $this->dayTurnTime;
@@ -1599,7 +1608,8 @@ class MafiaGame {
             }
             $players = $this->getAliveCount();
             $percent = $count * 100 / $players;
-            if ($percent >= 0 && $remain > $players * self::$DAY_TIMEOUT) {
+            $currentTimeout = $players * self::$DAY_TIMEOUT;
+            if ($percent >= 0 && $remain > $currentTimeout) {
                 $this->say(Config::$lobbyRoom, _('More than 0% of players cast their votes and day time out is ended. '));
                 $this->say(Config::$lobbyRoom, $this->boco(2, _('DOOM!')) . _(' has come to this world :D'));
                 $this->say(Config::$lobbyRoom, _('If there is a tie, cast your vote in private.'));
@@ -1615,8 +1625,9 @@ class MafiaGame {
                 if (!$vote_added)
                     $this->iSayPunishYou('', '');
                 //$this->doNight();
-            } else {
-                //$this->say(Config::$lobbyRoom, sprintf(_("%d secound remain from day, %d player of %d cast their vote!"), $players * self::$DAY_TIMEOUT - $remain, $count, $players));
+            } else if ($remain > $this->nextElapsedAnnounceTime) {
+                $this->say(Config::$lobbyRoom, sprintf(_("%d secound remain from day, %d player of %d cast their vote!"), $currentTimeout - $remain, $count, $players));
+                $this->nextElapsedAnnounceTime += ($currentTimeout - $this->nextElapsedAnnounceTime) / 2;
             }
         }
     }
