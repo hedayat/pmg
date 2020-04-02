@@ -35,7 +35,7 @@ class MafiaGame {
      * Day time out
      * @var integer
      */
-    static $DAY_TIMEOUT = 360;
+    static $DAY_TIMEOUT = 120;
 
     static $PUNISH_TIMEOUT = 120;
 
@@ -1599,8 +1599,8 @@ class MafiaGame {
             }
             $players = $this->getAliveCount();
             $percent = $count * 100 / $players;
-            if ($percent > 60 && $remain > self::$DAY_TIMEOUT) {
-                $this->say(Config::$lobbyRoom, _('More than 60% of players cast their votes and day time out is ended. '));
+            if ($percent >= 0 && $remain > $players * self::$DAY_TIMEOUT) {
+                $this->say(Config::$lobbyRoom, _('More than 0% of players cast their votes and day time out is ended. '));
                 $this->say(Config::$lobbyRoom, $this->boco(2, _('DOOM!')) . _(' has come to this world :D'));
                 $this->say(Config::$lobbyRoom, _('If there is a tie, cast your vote in private.'));
 
@@ -1616,7 +1616,7 @@ class MafiaGame {
                     $this->iSayPunishYou('', '');
                 //$this->doNight();
             } else {
-                $this->say(Config::$lobbyRoom, sprintf(_("%d secound remain from day, %d player of %d cast their vote!"), self::$DAY_TIMEOUT - $remain, $count, $players));
+                $this->say(Config::$lobbyRoom, sprintf(_("%d secound remain from day, %d player of %d cast their vote!"), $players * self::$DAY_TIMEOUT - $remain, $count, $players));
             }
         }
     }

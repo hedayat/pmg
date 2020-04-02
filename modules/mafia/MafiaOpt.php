@@ -110,8 +110,6 @@ class MafiaOpt extends Module {
             case "DAY-TIME":
                 if ($value !== false) {
                     MafiaGame::$DAY_TIMEOUT = intval($value);
-                    if (MafiaGame::$DAY_TIMEOUT < 100)
-                        MafiaGame::$DAY_TIMEOUT = 100;
                 }
                 $this->showDayTimeout();
                 break;
