@@ -109,6 +109,7 @@ class MafiaGame {
     private $nextElapsedAnnounceTime = 0;
 
     private $punishStartTime = 0;
+    private $nextPunishAnnounce = 0;
     private $punishWho = "";
 
     /**
@@ -1323,6 +1324,16 @@ class MafiaGame {
         return $who;
     }
 
+    private function announcePunishTime($who, $force) {
+        $punishAnnounce = false;
+        if (time() - $this->punishStartTime > $this->nextPunishAnnounce) {
+            $punishAnnounce = true;
+            $this->nextPunishAnnounce += (self::$PUNISH_TIMEOUT - $this->nextPunishAnnounce) / 2;
+        }
+        if ($force || $punishAnnounce)
+            $this->say(Config::$lobbyRoom, sprintf(_("You will punish %s in %d seconds if his/her votes don't decrease..."), MafiaGame::boco(2, $who), self::$PUNISH_TIMEOUT + $this->punishStartTime - time()));
+    }
+
     public function thisIsMyLastWish($I, $wish) {
         if (strtolower($I) != strtolower($this->lastDead)) {
             $this->say($I, _("You are not the last dead people!"));
@@ -1437,8 +1448,8 @@ class MafiaGame {
         }
 
         if ($nokill) {
-            if (!$checkPunish && $this->punishStartTime > 0)
-                $this->say(Config::$lobbyRoom, sprintf(_("You will punish %s in %d seconds if his/her votes don't decrease..."), MafiaGame::boco(2, $who), self::$PUNISH_TIMEOUT + $this->punishStartTime - time()));
+            if ($this->punishStartTime > 0)
+                $this->announcePunishTime($who, !$checkPunish);
             return;
         }
 
@@ -1451,14 +1462,14 @@ class MafiaGame {
         if ($this->punishStartTime == 0 || $this->punishWho != $who)
         {
             $this->punishStartTime = time();
+            $this->nextPunishAnnounce = self::$PUNISH_TIMEOUT / 2;
             $this->punishWho = $who;
             $this->say(Config::$lobbyRoom, sprintf(_("You will punish %s in %d seconds if his/her votes don't decrease..."), MafiaGame::boco(2, $who), self::$PUNISH_TIMEOUT));
             return;
         }
         else if (time() - $this->punishStartTime < self::$PUNISH_TIMEOUT)
         {
-            if (!$checkPunish)
-                $this->say(Config::$lobbyRoom, sprintf(_("You will punish %s in %d seconds if his/her votes don't decrease..."), MafiaGame::boco(2, $who), self::$PUNISH_TIMEOUT + $this->punishStartTime - time()));
+            $this->announcePunishTime($who, !$checkPunish);
             return;
         }
         $this->inGamePart[strtolower($who)]['alive'] = false;
