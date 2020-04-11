@@ -564,7 +564,10 @@ class MafiaGame {
             if (!$this->inGamePart[strtolower($nick)]['alive']) {
                 $this->say($nick, _("You are dead, so its ok to leave. just say goodbye to other people ;D"));
                 return;
-            }
+	    } else {
+                $this->say($nick, _("You are in the middle of a game, please wait untill you are dead or game is finished"));
+		return;
+	    }
 
             $this->inGamePart[strtolower($nick)]['alive'] = false;
 
